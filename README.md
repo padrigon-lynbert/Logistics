@@ -1,1 +1,1 @@
-Edit only the __/Templates__ folder
+Edit only the Templates/components/__sidebar.html__
