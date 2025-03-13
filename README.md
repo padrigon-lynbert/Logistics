@@ -1,1 +1,1 @@
-Edit only the __/Template__ folder
+Edit only the __/Templates__ folder
