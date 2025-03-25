@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_init'
+    'app_init', # apps starts here
+    'vendor_portal',
+    'audit_management',
+    'vehicle_reservation',
+    'fleet_management',
+    'documents_tracking',
 ]
 
 MIDDLEWARE = [

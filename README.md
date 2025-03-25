@@ -1,1 +1,1 @@
-Edit only the __/Templates__ folder
+Template codebase for group proj_3201
