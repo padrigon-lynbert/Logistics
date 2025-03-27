@@ -204,61 +204,61 @@
             <div class="ps-3">
                 <ul id="vendor-sub1" class="sidebar-dropdown list-unstyled collapse">
                     <li class="sidebar-item">
-                        <a href="{% url 'profile_management' %}" class="sidebar-link">Profile Management</a>
+                        <a href="{% url 'booking_requests' %}" class="sidebar-link">Booking Requests</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{% url 'user_roles_and_permissions' %}" class="sidebar-link">User Roles & Permissions </a>
+                        <a href="{% url 'reservation_approval' %}" class="sidebar-link">Reservation Approval</a>
                     </li>
-                        <a href="{% url 'booking_history' %}" class="sidebar-link">Booking History</a>
+                        <a href="{% url 'cancelation_and_modifications' %}" class="sidebar-link">Cancellation & Modifications</a>
                     </li>
                 </ul>
             </div>
         </li>
-
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                data-bs-target="#vendor-sub2" aria-expanded="false" aria-controls="vendor-sub2">
-                Scheduling & Availability
+            data-bs-target="#vendor-sub2" aria-expanded="false" aria-controls="vendor-sub2">
+            Vehicle Allocation & Tracking
             </a>
 
             <div class="ps-3">  
                 <ul id="vendor-sub2" class="sidebar-dropdown list-unstyled collapse">
                     <li class="sidebar-item">
-                        <a href="{% url 'vehicle_availability_check' %}" class="sidebar-link">Vehicle Availability Check</a>
+                        <a href="{% url 'fleet_assignment' %}" class="sidebar-link">Fleet Assignment</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{% url 'recurring_reservations' %}" class="sidebar-link">Recurring Reservations</a>
+                        <a href="{% url 'vehicle_status_monitoring' %}" class="sidebar-link">Vehicle Status Monitoring</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{% url 'time_slot_management' %}" class="sidebar-link">Time Slot Management</a>
+                        <a href="{% url 'usage_reports' %}" class="sidebar-link">Usage Reports</a>
                     </li>
                 </ul>
             </div>
         </li>
-
+        
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
                 data-bs-target="#vendor-sub3" aria-expanded="false" aria-controls="vendor-sub3">
-                Payment and Billing
+                Compliance & Maintenance Integration
             </a>
 
             <div class="ps-3">
                 <ul id="vendor-sub3" class="sidebar-dropdown list-unstyled collapse">
                     <li class="sidebar-item">
-                        <a href="{% url 'payment_processing' %}" class="sidebar-link">Payment Processing</a>
+                        <a href="{% url 'inspection_scheduling' %}" class="sidebar-link">Inspection Scheduling</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{% url 'pricing_and_fare_calculation' %}" class="sidebar-link">Pricing & Fare Calculation</a>
+                        <a href="{% url 'usage_compliance' %}" class="sidebar-link">Usage Compliance</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{% url 'payment_verification' %}" class="sidebar-link">Payment Verification</a>
+                        <a href="{% url 'repair_and_maintenance_request' %}" class="sidebar-link">Repair & Maintenance Requests</a>
                     </li>
                 </ul>
             </div>
         </li>
     </ul>
     
-</li>
+</li> 
+
 
 <!-- Submodule Fleet Management -->
 <li class="sidebar-item">
