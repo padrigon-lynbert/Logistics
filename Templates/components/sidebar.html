@@ -1,17 +1,23 @@
 <!-- sidebar -->
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
 <div class="wrapper">
-    <aside id="sidebar">
+    <aside id="sidebar" style="background-color: #353c61;">
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <i class="lni lni-grid-alt"></i>
             </button>
-            <div class="sidebar-logo">
+            <div class="sidebar-logo" style="font-family: 'Montserrat', sans-serif;">
                 <!-- <a href="{% url 'dashboard' %}">Chain Operations</a> -->
                 <a href="{% url 'dashboard' %}">Logistic II</a>
             </div>
         </div>
 
-        <ul class="sidebar-nav">
+        <!-- <ul class="sidebar-nav"> -->
+        <ul class="sidebar-nav" style="font-family: 'nunito';">
+
 
             {% include 'components/modules.html' %}
 
