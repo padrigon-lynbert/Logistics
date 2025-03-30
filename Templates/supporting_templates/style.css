@@ -42,8 +42,8 @@ body {
     z-index: 1000;
     transition: all .25s ease-in-out;
     /* background-color: #0e2238; */
+    background-color: #353c61 !important;
     /* background-color: black; */
-    background-color: red !important; /* Forces red background */
 
     display: flex;
     flex-direction: column;
