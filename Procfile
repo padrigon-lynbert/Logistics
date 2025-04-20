@@ -1,0 +1,1 @@
+web: gunicorn Logistics_II.wsgi
