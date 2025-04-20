@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_init',
     'vendor_portal',
-    'audit_management',
-    'vehicle_reservation',
-    'fleet_management',
-    'documents_tracking',
+    # 'audit_management',
+    # 'vehicle_reservation',
+    # 'fleet_management',
+    # 'documents_tracking',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +138,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-# DEBUG = False
+# DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = True
 ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "127.0.0.1")]
 
