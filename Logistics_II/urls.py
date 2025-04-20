@@ -1,5 +1,5 @@
 """
-URL configuration for Logistics project.
+URL configuration for Logistics_II project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_init.urls')),
-    path('', include('vendor_portal.urls')),
-    path('', include('audit_management.urls')),
-    path('', include('vehicle_reservation.urls')),
-    path('', include('fleet_management.urls')),
-    path('', include('documents_tracking.urls')),
+    # path('', include('vendor_portal.urls')),
+#     path('', include('audit_management.urls')),
+#     path('', include('vehicle_reservation.urls')),
+#     path('', include('fleet_management.urls')),
+#     path('', include('documents_tracking.urls')),
 ]
