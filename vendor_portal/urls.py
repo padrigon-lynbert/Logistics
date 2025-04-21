@@ -5,8 +5,8 @@ from .templates.vendor_performance.views import ratings, summary, request_meetup
 
 urlpatterns = [
     path('vendor/vendor_manager/vendor_activation/', vendor_activation, name='vendor_activation'),
-    path('vendor/vendor_manager/vendor_details/', vendor_details, name='vendor_details'),
-    path('vendor/vendor_manager/tracks/', tracks, name='tracks'),
+    # path('vendor/vendor_manager/vendor_details/', vendor_details, name='vendor_details'),
+    # path('vendor/vendor_manager/tracks/', tracks, name='tracks'),
 
     # path('vendor/vendor_transaction/orders/', orders, name='orders'),
     # path('vendor/vendor_transaction/invoices/', invoices, name='invoices'),
