@@ -15,6 +15,4 @@ urlpatterns = [
     # path('vendor/vendor_performance/ratings/', ratings, name='ratings'),
     # path('vendor/vendor_performance/summary/', summary, name='summary'),
     # path('vendor/vendor_performance/request_meetup/', request_meetup, name='request_meetup'),
-
-
 ]
