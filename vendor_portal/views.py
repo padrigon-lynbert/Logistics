@@ -7,8 +7,10 @@ from django.shortcuts import render
 #     logger.info("vendor_portal_home.html is being rendered")
 #     return render(request, 'Sub1.html')
 
-def vendor_activation(request):
-    return render(request, 'vendor_manager/vendor_activation.html')
+def home(request):
+    return render(request, 'vendor_portal/vendor_portal_home.html')
+# def vendor_activation(request):
+#     return render(request, 'vendor_manager/vendor_activation.html')
 # def vendor_details(request):
 #     return render(request, 'vendor_manager/vendor_details.html')
 # def tracks(request):
