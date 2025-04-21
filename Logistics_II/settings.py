@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_init',
-    # 'vendor_portal',
+    'vendor_portal',
     # 'audit_management',
     # 'vehicle_reservation',
     # 'fleet_management',
