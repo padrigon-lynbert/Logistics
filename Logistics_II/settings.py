@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_init',
     'vendor_portal',
-    # 'audit_management',
+    'audit_management',
     # 'vehicle_reservation',
     # 'fleet_management',
     # 'documents_tracking',
