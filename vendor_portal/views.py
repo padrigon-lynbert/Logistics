@@ -10,10 +10,10 @@ from django.shortcuts import render
 
 def vendor_activation(request):
     return render(request, 'vendor_manager/vendor_activation.html')
-# def vendor_details(request):
-#     return render(request, 'vendor_manager/vendor_details.html')
-# def tracks(request):
-#     return render(request, 'vendor_manager/tracks.html')
+def vendor_details(request):
+    return render(request, 'vendor_manager/vendor_details.html')
+def tracks(request):
+    return render(request, 'vendor_manager/tracks.html')
 
 # def ratings(request):
 #     return render(request, 'vendor_performance/ratings.html')
