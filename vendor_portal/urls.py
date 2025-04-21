@@ -1,7 +1,8 @@
 from django.urls import path
-from .templates.vendor_manager.views import vendor_activation, tracks, vendor_details
-from .templates.vendor_transaction.views import orders, invoices, cancel_transaction
-from .templates.vendor_performance.views import ratings, summary, request_meetup
+from .views import vendor_activation
+# from .views import vendor_activation, tracks, vendor_details
+# from .templates.vendor_transaction.views import orders, invoices, cancel_transaction
+# from .templates.vendor_performance.views import ratings, summary, request_meetup
 
 urlpatterns = [
     path('vendor/vendor_manager/vendor_activation/', vendor_activation, name='vendor_activation'),
