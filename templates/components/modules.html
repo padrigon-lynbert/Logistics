@@ -175,6 +175,80 @@
 
 
 
+ 
+<!-- Submodule Vehicle Reservation -->
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+        data-bs-target="#vehicle-multi" aria-expanded="false" aria-controls="multi">
+        <i class="lni lni-layout"></i>
+        <span>Vehicle Reservation</span>
+    </a>
+    
+        <ul id="vehicle-multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub1" aria-expanded="false" aria-controls="vendor-sub1">
+                User Management
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub1" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'booking_requests' %}" class="sidebar-link">Booking Requests</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'reservation_approval' %}" class="sidebar-link">Reservation Approval</a>
+                    </li>
+                        <a href="{% url 'cancelation_and_modifications' %}" class="sidebar-link">Cancellation & Modifications</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+            data-bs-target="#vendor-sub2" aria-expanded="false" aria-controls="vendor-sub2">
+            Vehicle Allocation & Tracking
+            </a>
+
+            <div class="ps-3">  
+                <ul id="vendor-sub2" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'fleet_assignment' %}" class="sidebar-link">Fleet Assignment</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'vehicle_status_monitoring' %}" class="sidebar-link">Vehicle Status Monitoring</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'usage_reports' %}" class="sidebar-link">Usage Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub3" aria-expanded="false" aria-controls="vendor-sub3">
+                Compliance & Maintenance Integration
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub3" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'inspection_scheduling' %}" class="sidebar-link">Inspection Scheduling</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'usage_compliance' %}" class="sidebar-link">Usage Compliance</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'repair_and_maintenance_request' %}" class="sidebar-link">Repair & Maintenance Requests</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    
+</li> 
 
         
 

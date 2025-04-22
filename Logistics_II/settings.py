@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'app_init',
     'vendor_portal',
     'audit_management',
-    # 'vehicle_reservation',
+    'vehicle_reservation',
     # 'fleet_management',
     # 'documents_tracking',
 ]
