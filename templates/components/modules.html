@@ -253,6 +253,160 @@
         
 
 
+<!-- Submodule Fleet Management -->
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+        data-bs-target="#fleet-multi" aria-expanded="false" aria-controls="multi">
+        <i class="lni lni-layout"></i>
+        <span>Fleet Management</span>
+    </a>
+    
+        <ul id="fleet-multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub1" aria-expanded="false" aria-controls="vendor-sub1">
+                Maintenance Management
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub1" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'preventive_maintenance_scheduling' %}" class="sidebar-link">Preventive maintenance scheduling</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'maintenance_history_logging' %}" class="sidebar-link"> Maintenance history logging </a>
+                    </li>
+                        <a href="{% url 'alerts_for_servicing_needs' %}" class="sidebar-link"> Alerts for servicing needs</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub2" aria-expanded="false" aria-controls="vendor-sub2">
+                Driver Management
+            </a>
+
+            <div class="ps-3">  
+                <ul id="vendor-sub2" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'driver_assignment' %}" class="sidebar-link">Driver Assignment</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'license_and_certification_tracking' %}" class="sidebar-link">License And Certification Tracking</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'driver_performance_monitoring' %}" class="sidebar-link">Driver Performance Monitoring</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub3" aria-expanded="false" aria-controls="vendor-sub3">
+                Safety and Compliance
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub3" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'accident_reporting' %}" class="sidebar-link">Vehicle inspections</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'regulatory_compliance_tracking' %}" class="sidebar-link">Regulatory compliance tracking</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'accident_reporting' %}" class="sidebar-link">Accident reporting</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    
+</li>
+
+
+
+
+<!-- Submodule Document Tracking System -->
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+        data-bs-target="#docu-multi" aria-expanded="false" aria-controls="multi">
+        <i class="lni lni-layout"></i>
+        <span>Documents Tracking</span>
+    </a>
+    
+        <ul id="docu-multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub1" aria-expanded="false" aria-controls="vendor-sub1">
+                Document Table  
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub1" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'column_customization_and_sorting' %}" class="sidebar-link">Column Customization and Sorting </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'inline_editing' %}" class="sidebar-link">Inline Editing</a>
+                    </li>
+                        <a href="{% url 'action_button' %}" class="sidebar-link">Action Button</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub2" aria-expanded="false" aria-controls="vendor-sub2">
+                Activity Log/History
+            </a>
+
+            <div class="ps-3">  
+                <ul id="vendor-sub2" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'event_tracking' %}" class="sidebar-link">Event Tracking</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'time_stamping' %}" class="sidebar-link">Time Stamping</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'user_identification' %}" class="sidebar-link">User Identification</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                data-bs-target="#vendor-sub3" aria-expanded="false" aria-controls="vendor-sub3">
+                Document Access Control
+            </a>
+
+            <div class="ps-3">
+                <ul id="vendor-sub3" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item">
+                        <a href="{% url 'user_permission_management' %}" class="sidebar-link">User Permission Management</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'role_based_access_control' %}" class="sidebar-link">Role-based Access Control</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'document_ownership_transfer' %}" class="sidebar-link">Document Ownership Transfer</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    
+</li>
+
+
 
 
 

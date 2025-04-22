@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'vendor_portal',
     'audit_management',
     'vehicle_reservation',
-    # 'fleet_management',
-    # 'documents_tracking',
+    'fleet_management',
+    'documents_tracking',
 ]
 
 MIDDLEWARE = [
