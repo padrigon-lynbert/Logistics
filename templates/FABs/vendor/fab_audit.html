@@ -1,0 +1,63 @@
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  
+  .fab-floating-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 900;
+  }
+
+  #fabFloatingMenu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .fab-sidebar-link {
+    text-decoration: none !important;
+  }
+
+  .fab-sidebar-link:hover {
+    text-decoration: none !important;
+  }
+</style>
+
+
+<div class="fab-floating-container">
+  <button id="fabToggleBtn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 60px; height: 60px;  background-color: #353c61;">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+
+  <div id="fabFloatingMenu">
+    <a href="{% url 'policies' %}" class="btn btn-sm btn-outline-secondary mb-1">🔍 Compliance</a>
+    <a href="{% url 'sales_performance' %}" class="btn btn-sm btn-outline-secondary mb-1">👤 Analytics</a>
+    <a href="{% url 'audit_objective' %}" class="btn btn-sm btn-outline-secondary">⚙️ Scheduling</a>
+    <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-secondary">🏠 Dashboard</a>
+  </div>
+</div>
+
+<script>
+  const fabBtn = document.getElementById("fabToggleBtn");
+  const fabMenu = document.getElementById("fabFloatingMenu");
+
+  fabBtn.addEventListener("click", () => {
+    fabMenu.style.display = fabMenu.style.display === "flex" ? "none" : "flex";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!fabBtn.contains(e.target) && !fabMenu.contains(e.target)) {
+      fabMenu.style.display = "none";
+    }
+  });
+</script>
