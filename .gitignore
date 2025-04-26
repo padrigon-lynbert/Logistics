@@ -2,4 +2,5 @@
 **sqlite3
 
 __pycache__/
+log2_env/
 /logistics2_venv/
