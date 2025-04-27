@@ -1,34 +1,40 @@
-<div class="container py-4">
-    <div class="card shadow-sm">
+<div class="container py-5">
+  <div class="card border-0 shadow-lg">
       <div class="card-header bg-white border-bottom-0 py-3 d-flex justify-content-between align-items-center">
-        <div>
-          <h4 class="mb-1">User Engagement</h4>
-          <p class="text-muted mb-0">How users interact with and find value in your service.</p>
-        </div>
-        <button class="btn btn-outline-primary btn-sm" onclick="alert('Opening engagement report...')">
-          📊 View Report
-        </button>
+          <div>
+              <h4 class="mb-1">Compliance & Regulatory Reporting</h4>
+              <p class="text-muted mb-0">Overview of regulatory submissions and compliance status.</p>
+          </div>
+          <button class="btn btn-outline-dark btn-sm" onclick="alert('Opening full audit report...')">
+            📝 View Full Report
+        </button> 
       </div>
       <div class="card-body">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Avg. Session Duration
-            <span class="badge bg-primary rounded-pill">5m 12s</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Daily Active Users (DAU)
-            <span class="badge bg-success rounded-pill">1,420</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Retention Rate
-            <span class="badge bg-warning text-dark rounded-pill">76%</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Feature Usage
-            <span class="badge bg-info text-dark rounded-pill">Top: Search 🔍</span>
-          </li>
-        </ul>
+          <div class="mt-2">
+              <div class="d-flex justify-content-between mb-2">
+                  <span>Reports Submitted</span>
+                  <span class="badge bg-success">24</span>
+              </div>
+              <div class="progress mb-3" style="height: 8px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                  <span>Pending Submissions</span>
+                  <span class="badge bg-warning text-dark">3</span>
+              </div>
+              <div class="progress mb-3" style="height: 8px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                  <span>Compliance Rate</span>
+                  <span class="badge bg-info text-dark">96%</span>
+              </div>
+              <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 96%;" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
-  
+</div>

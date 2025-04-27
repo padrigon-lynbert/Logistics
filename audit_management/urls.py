@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import policies, procedures, audits
-from .views import sales_performance, social_media_activity, user_engagement
+from .views import audit_findings, social_media_activity, user_engagement
 from .views import audit_objective, communication_plan, scope_of_the_audit
 
 urlpatterns = [
@@ -8,7 +8,7 @@ urlpatterns = [
     path('audit/compliance_management/procedures/', procedures, name='procedures'),
     path('audit/compliance_management/audits/', audits, name='audits'),
 
-    path('audit/reporting_analytics/sales_performance/', sales_performance, name='sales_performance'),
+    path('audit/reporting_analytics/audit_findings/', audit_findings, name='audit_findings'),
     path('audit/reporting_analytics/social_media_activity/', social_media_activity, name='social_media_activity'),
     path('audit/reporting_analytics/user_engagement/', user_engagement, name='user_engagement'),
 

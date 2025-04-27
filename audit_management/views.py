@@ -14,8 +14,8 @@ def procedures(request):
 def audits(request):
     return render(request, 'compliance_management/audits.html')
 
-def sales_performance(request):
-    return render(request, 'reporting_analytics/sales_porformance.html')
+def audit_findings(request):
+    return render(request, 'reporting_analytics/audit_findings.html')
 def user_engagement(request):
     return render(request, 'reporting_analytics/user_engagement.html')
 def social_media_activity(request):
