@@ -51,8 +51,8 @@
             <div class="card-header bg-white border-bottom-0 py-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="mb-1">Activity Log</h4>
-                        <p class="text-muted mb-0">Manage the document activities</p>
+                        <h4 class="mb-1">Shipment</h4>
+                        <p class="text-muted mb-0">Manage the shipment documents</p>
                     </div>
                     <div class="col-md-3">
                         <div class="input-group">
@@ -72,6 +72,10 @@
                             <th style="width: 20%">Filename</th>
                             <th style="width: 20%">Permformed by</th>
                             <th style="width: 20%">Time</th>
+                            <th style="width: 20%">Status</th>
+                            <th style="width: 20%">Type</th>
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -82,6 +86,14 @@
                             <td>Report_Sales_20250401_Q1Performance_V1.docx</td>
                             <td>John Doe</td>
                             <td>2025/04/16 09:56:19</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Shipment</td>
 
 
                     </tr>
@@ -92,6 +104,14 @@
                             <td>Contract_Legal_20250320_Client123_Signed.pdf</td>
                             <td>Jane Doe</td>
                             <td>2025/04/21 17:56:35</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Shipment</td>
 
                         </tr>
                         <tr>
@@ -101,12 +121,201 @@
                             <td>Minutes_Admin_20250423_TeamMeeting_V1</td>
                             <td>Alice Smith</td>
                             <td>2025/04/23 12:56:40</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Shipment</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-header bg-white border-bottom-0 py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">Invoices</h4>
+                        <p class="text-muted mb-0">Manage the invoices documents</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Search documents...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">Action</th>
+                            <th style="width: 20%">Filename</th>
+                            <th style="width: 20%">Permformed by</th>
+                            <th style="width: 20%">Time</th>
+                            <th style="width: 20%">Status</th>
+                            <th style="width: 20%">Type</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                            <td>
+                                <span class="status-badge status-active">Create</span>
+                            </td>
+                            <td>Report_Sales_20250401_Q1Performance_V1.docx</td>
+                            <td>John Doe</td>
+                            <td>2025/04/16 09:56:19</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Invoices</td>
+
+
+                    </tr>
+                    <tr>
+                            <td>
+                                <span class="status-badge status-paused">Modify</span>
+                            </td>
+                            <td>Contract_Legal_20250320_Client123_Signed.pdf</td>
+                            <td>Jane Doe</td>
+                            <td>2025/04/21 17:56:35</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Invoices</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="status-badge status-inactive">Delete</span>
+                            </td>
+                            <td>Minutes_Admin_20250423_TeamMeeting_V1</td>
+                            <td>Alice Smith</td>
+                            <td>2025/04/23 12:56:40</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Invoices</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-header bg-white border-bottom-0 py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">Contracts</h4>
+                        <p class="text-muted mb-0">Manage the contract documents</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Search documents...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">Action</th>
+                            <th style="width: 20%">Filename</th>
+                            <th style="width: 20%">Permformed by</th>
+                            <th style="width: 20%">Time</th>
+                            <th style="width: 20%">Status</th>
+                            <th style="width: 20%">Type</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                            <td>
+                                <span class="status-badge status-active">Create</span>
+                            </td>
+                            <td>Report_Sales_20250401_Q1Performance_V1.docx</td>
+                            <td>John Doe</td>
+                            <td>2025/04/16 09:56:19</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Contract</td>
+
+
+                    </tr>
+                    <tr>
+                            <td>
+                                <span class="status-badge status-paused">Modify</span>
+                            </td>
+                            <td>Contract_Legal_20250320_Client123_Signed.pdf</td>
+                            <td>Jane Doe</td>
+                            <td>2025/04/21 17:56:35</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Contract</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="status-badge status-inactive">Delete</span>
+                            </td>
+                            <td>Minutes_Admin_20250423_TeamMeeting_V1</td>
+                            <td>Alice Smith</td>
+                            <td>2025/04/23 12:56:40</td>
+                            <td>                                
+                                <select class="form-select">
+                                    <option value="active">Verified</option>
+                                    <option value="inactive">Returned</option>
+                                    <option value="paused" selected>Pending</option>
+                                </select>
+                            </td>
+                            <td>Contract</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
     
 
