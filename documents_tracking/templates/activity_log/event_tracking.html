@@ -45,6 +45,55 @@
 </head>
 
 <body class="bg-light">
+
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-header bg-white border-bottom-0 py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">Add Files</h4>
+                        <p class="text-muted mb-0">For adding and verifying files.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Search documents...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form action="#">
+                    <fieldset>
+                        <div class="card-body">
+                            <label for="document-name">Document Name: </label><br>
+                            <input id="document-name" type="text">
+                        </div>
+                        <div class="card-body">
+                            <label for="status">Status: </label><br>
+                            <select class="status">
+                                <option value="active">Verified</option>
+                                <option value="inactive">Returned</option>
+                                <option value="paused" selected>Pending</option>
+                            </select>
+                        </div>
+                        <div class="card-body">
+                            <label for="type">Type: </label><br>
+                            <select class="type">
+                                <option value="active">Shipment</option>
+                                <option value="inactive">Invoice</option>
+                                <option value="paused" selected>Contract</option>
+                            </select>
+                        </div>
+                    <fieldset>
+                    <button class="status-active">Add</button>
+                    <button class="status-inactive">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <div class="container py-5">
         <div class="card">
