@@ -167,7 +167,7 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="250">
-                    <a href="{% url 'policies' %}">
+                    <a href="{% url 'sales_performance' %}">
                         <div class="service theme-shadow p-lg-5 p-4">
                             <div class="services-img">
                                 {# % load static % #}
@@ -223,8 +223,8 @@
                         <div class="service theme-shadow p-lg-5 p-4">
                             <div class="services-img">
                                 {% load static %}
-                                <img src="{% static 'images/services/world-wide-web.png' %}" alt="">
-                                <img src="/Dashboard/Images/services/algorithm.png" alt="">
+                                <!-- <img src="{# % static 'images/services/world-wide-web.png' % #}" alt=""> -->
+                                <img src="{% static 'images/services/algorithm.png' %}" alt="">
                             </div>
                             <h5 class="mt-4 mb-3">Under Development</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptate!</p>
@@ -276,99 +276,116 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-down" data-aos-delay="150">
                     <div class="portfolio-item image-zoom">
-                        <div class="image-zoom-wrapper">
-                        
-                            <img src="{% static 'images/test.png' %}" alt="">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
+                            
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
+                    </div>
+                    <div class="portfolio-item image-zoom mt-4">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
+                            
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
+                        </div>
 
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
                             
-                            <img src="{% static 'images/test.png' %}" alt="">
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
-
-                    </div>
-                    <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
-                            
-                            <img src="{% static 'images/test.png' %}" alt="">
-                        </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                 </div>
                 
                 <div class="col-md-4" data-aos="fade-down" data-aos-delay="150">
                     <div class="portfolio-item image-zoom">
-                        <div class="image-zoom-wrapper">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
                             
-                            <img src="{% static 'images/test.png' %}" alt="">
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
                             
-                            <img src="{% static 'images/test.png' %}" alt="">
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
                             
-                            <img src="{% static 'images/test.png' %}" alt="">
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                 </div>
 
                 <div class="col-md-4" data-aos="fade-down" data-aos-delay="150">
                     <div class="portfolio-item image-zoom">
-                        <div class="image-zoom-wrapper">
-                            {% load static %}
-                            <img src="{% static 'images/test.png' %}" alt="">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
+                            
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
-                            {% load static %}
-                            <img src="{% static 'images/test.png' %}" alt="">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
+                            
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
-                        <div class="image-zoom-wrapper">
-                            {% load static %}
-                            <img src="{% static 'images/test.png' %}" alt="">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="{% static 'images/test.png' %}" alt="" style="display: block; width: 100%; height: auto;">
+                            
+                            <a href="{% static 'images/test.png' %}" target="_blank" 
+                               style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <img src="{% static 'icons/portfolio/search.svg' %}" alt="View Image" 
+                                     style="width: 32px; height: 32px; filter: invert(1);">
+                            </a>
                         </div>
-                        <a href="{% static 'images/test.png' %}" target="_blank">
-                            <img class="icon-img" src="{% static 'icons/portfolio/search.svg' %}" alt="View Image">
-                        </a>
 
                     </div>
                 </div>
@@ -759,11 +776,11 @@
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
 
 
-    <script src="/Boostrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

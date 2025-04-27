@@ -1,4 +1,4 @@
-@import url(clash-display.css);
+
 
 
 /* VARIABLES */
@@ -6,9 +6,8 @@
     --c-dark: #212529;
     --c-brand: #353c61;
     --c-brand-light: #353c61;
-    --c-brand-rgb: 78, 87, 212;
-    --c-body: #727272;
-    --font-base: "ClashDisplay", sans-serif;
+    --c-brand-rgb: 78, 87, 212;--c-body: #727272;
+/* --font-base: "ClashDisplay", sans-serif; */
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
     --transition: all 0.5s ease;
 }
@@ -290,7 +289,7 @@ img {
     content: "";
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.8)), url(../images/counter.jpg);
+    /* background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.8)), url(../images/counter.jpg); */
     background-position: center;
     background-size: cover;
     position: absolute;
