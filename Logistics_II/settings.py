@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'vehicle_reservation',
     'fleet_management',
     'documents_tracking',
+    'market',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'templates', 'supporting_templates')  # Adjust path based on your structure
+    BASE_DIR / "static"
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]

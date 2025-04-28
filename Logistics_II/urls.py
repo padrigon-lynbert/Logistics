@@ -27,4 +27,5 @@ urlpatterns = [
     path('vehicle/', include('vehicle_reservation.urls')),
     path('fleet/', include('fleet_management.urls')),
     path('docs/', include('documents_tracking.urls')),
+    path('docs/', include('market.urls')),
 ]
