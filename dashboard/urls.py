@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import dashboard
+from .views import dashboard, microfinance
 
 urlpatterns = [
-    path('', dashboard, name='dashboard'),
+    path('', microfinance, name='microfinance'),
+    path('dashboard/', dashboard, name='dashboard'),
 ]

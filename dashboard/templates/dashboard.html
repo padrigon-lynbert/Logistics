@@ -22,7 +22,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'microfinance' %}">
                 <h1>Logistic II</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -56,7 +56,7 @@
                         <a class="nav-link" href="#blog">Blog</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-brand ms-lg-3">Microfinance</a>
+                <a href="{% url 'microfinance' %}" class="btn btn-brand ms-lg-3">Microfinance</a>
             </div>
         </div>
     </nav>
