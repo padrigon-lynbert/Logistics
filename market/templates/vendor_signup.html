@@ -38,7 +38,7 @@
                             <li><a href="{% url 'explore' %}"> Explore</a></li>
                             <li><a href="{% url 'item_details' %}">Item Details</a></li>
                             <li><a href="{% url 'author' %}">Author</a></li>
-                            <li><a href="{% url 'create' %}">Become a Vendor</a></li>
+                            <li><a href="{% url 'vendor_signup' %}">Become a Vendor</a></li>
                         </ul>   
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -56,7 +56,7 @@
             <div class="col-lg-12">
               <h6>TruLend</h6>
               <h2>Become a Vendor</h2>
-              <span>Home > <a href="#">Item Details</a></span>
+              <!-- <span>Home > <a href="#">Item Details</a></span> -->
               <div class="buttons">
                 <div class="main-button">
                   <a href="{% url 'explore' %}">Services We Need</a>
@@ -81,7 +81,7 @@
             </div>
             <div class="col-lg-7">
               <div class="left-image">
-                <img src="{% static 'images/item-details-01.jpg' %}" alt="" style="border-radius: 20px;">
+                <img src="{% static 'images/item-details-01.jpg' %}" alt="" style="border-radius: 20px;"> <!--img should be changeable like add photo here this one is just default so ui looks good-->
               </div>
             </div>
             <div class="col-lg-5 align-self-center">
