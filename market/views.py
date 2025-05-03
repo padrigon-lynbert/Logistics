@@ -15,3 +15,6 @@ def author (request):
 
 def create(request):
     return render(request, 'create.html')
+
+def vendor_signup(request):
+    return render(request, 'vendor_signup.html')
