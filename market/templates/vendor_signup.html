@@ -61,11 +61,165 @@
                 <div class="main-button">
                   <a href="{% url 'explore' %}">Services We Need</a>
                 </div>
-                <div class="border-button">
+                <div class="border-button"> 
                   <a href="{% url 'vendor_signup' %}">Register</a>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+    </div>
+
+      <div class="item-details-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="section-heading">
+                <div class="line-dec"></div>
+                <h2>Register as <em>Vendor</em> Here.</h2>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="left-image">
+                <img src="{% static 'images/item-details-01.jpg' %}" alt="" style="border-radius: 20px;">
+              </div>
+            </div>
+            <div class="col-lg-5 align-self-center">
+              <h4>Add Vendor Name Here</h4>
+              <span class="author">
+                <!-- <img src="{% static 'images/author-02.jpg' %}" alt="" style="max-width: 50px; border-radius: 50%;"> -->
+                <h6>Service to offer<br></h6> <!-- # should scroll down to see other type of Services -->
+              </span>
+              <p>Add details about you here. (limit 300)</p>
+              <div class="row">
+                <div class="col-3">
+                  <span class="bid">
+                    Bid Winner<br><strong>₱ 3.2 M</strong><br><em>(Quarterly)</em>
+                  </span>
+                </div>
+                <div class="col-4">
+                  <span class="owner">
+                    Vendor<br><strong>Company1</strong><br><em>(@contact)</em>
+                  </span>
+                </div>
+                <div class="col-5">
+                  <span class="ends">
+                    Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
+                  </span>
+                </div>
+              </div>
+              <form action="submit">
+                <label for="quantity-text">Place Bid:</label>
+                <input placeholder="500 K" class="quantity-text">
+                <button type="submit" id="form-submit" class="main-button">Submit Now</button>
+              </form>
+            </div>
+
+            
+            <!-- <div class="col-lg-12">
+              <div class="current-bid">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mini-heading"><h4>Current Biddings Prices ( ETH )</h4></div>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                          <option selected>Sort By: Latest</option>
+                          <option type="checkbox" name="option1" value="old">Sort By: Oldest</option>
+                          <option value="low">Sort By: Lowest</option>
+                          <option value="high">Sort By: Highest</option>
+                      </select>
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-01.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-02.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-03.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-02.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-04.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                      <div class="left-img">
+                        <img src="{% static 'images/current-01.jpg' %}" alt="">
+                      </div>
+                      <div class="right-content">
+                        <h4>David Walker</h4>
+                        <a href="#">@davidwalker</a>
+                        <div class="line-dec"></div>
+                        <h6>Bid: <em>0.06 ETH</em></h6>
+                        <span class="date">24/07/2022, 22:00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
           </div>
         </div>
       </div>
