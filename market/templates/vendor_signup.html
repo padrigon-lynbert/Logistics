@@ -43,51 +43,107 @@
           </div>
         </div>
     </div>
+            
 
-      <div class="item-details-page">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section-heading">
-                <div class="line-dec"></div>
-                <h2>Register as <em>Vendor</em> Here.</h2>
+
+
+
+
+            <div class="item-details-page">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="section-heading">
+                      <div class="line-dec"></div>
+                      <h2>Register as <em>Vendor</em> Here.</h2>
+                    </div>
+                  </div>
+            
+                  <!-- Image Upload (Optional default image) -->
+                  <div class="col-lg-7">
+                    <div class="left-image">
+
+                      <img id="vendor-preview" src="{% static 'images/item-details-01.jpg' %}" 
+                      alt="Vendor Image Preview" 
+                      style="width: 100%; height: 700px; object-fit: cover; border-radius: 20px;">
+
+
+                      <input type="file" accept="image/*" onchange="previewImage(event)" class="form-control mt-2">
+                    </div>
+                  </div>
+            
+                  <div class="col-lg-5 align-self-center" id="signup">
+                    <form method="post" action="#signup" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group mb-3" style="display: flex; gap: 10px;">
+                        <div style="flex: 1;">
+                          <label for="username"><h4>Username</h4></label>
+                          <input type="text" name="username" id="username" class="form-control" placeholder="Enter username" required style="width: 100%; padding: 10px; font-size: 16px;">
+                        </div>
+                        
+                        <div style="flex: 1;">
+                          <label for="password"><h4>Password</h4></label>
+                          <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required style="width: 100%; padding: 10px; font-size: 16px;">
+                        </div>
+                      </div>
+                      
+                      
+            
+                      <div class="form-group mb-3">
+                        <label><h6>Service to offer</h6></label>
+                        <select name="service" class="form-control" required>
+                          <option disabled selected>Select service</option>
+                          <option>Photography</option>
+                          <option>Catering</option>
+                          <option>Logistics</option>
+                          <!-- Add more -->
+                        </select>
+                      </div>
+            
+                      <div class="form-group mb-3">
+                        <label for="about"><p>About You (max 300 chars)</p></label>
+                        <textarea name="about" id="about" class="form-control" maxlength="300" rows="4" required></textarea>
+                      </div>
+            
+                      <div class="row mb-3">
+                        <div class="col-3">
+                          <span class="bid">
+                            Bid Winner<br><strong>₱ 3.2 M</strong><br><em>(Quarterly)</em>
+                          </span>
+                        </div>
+                        <div class="col-4">
+                          <span class="owner">
+                            Vendor<br><strong>Company1</strong><br><em>(@contact)</em>
+                          </span>
+                        </div>
+                        <div class="col-5">
+                          <span class="ends">
+                            Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
+                          </span>
+                        </div>
+                      </div>
+            
+                      <div class="form-group mb-3">
+                        <label for="bid">Place Bid:</label>
+                        <input type="text" id="bid" name="bid" placeholder="e.g., 500 K" class="form-control">
+                      </div>
+            
+                      <button type="submit" id="form-submit" class="main-button">Submit Now</button>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-lg-7">
-              <div class="left-image">
-                <img src="{% static 'images/item-details-01.jpg' %}" alt="" style="border-radius: 20px;"> <!--img should be changeable like add photo here this one is just default so ui looks good-->
-              </div>
-            </div>
-            <div class="col-lg-5 align-self-center">
-              <h4>Add Vendor Name Here</h4>
-              <span class="author">
-                <!-- <img src="{% static 'images/author-02.jpg' %}" alt="" style="max-width: 50px; border-radius: 50%;"> -->
-                <h6>Service to offer<br></h6> <!-- # should scroll down to see other type of Services -->
-              </span>
-              <p>Add details about you here. (limit 300)</p>
-              <div class="row">
-                <div class="col-3">
-                  <span class="bid">
-                    Bid Winner<br><strong>₱ 3.2 M</strong><br><em>(Quarterly)</em>
-                  </span>
-                </div>
-                <div class="col-4">
-                  <span class="owner">
-                    Vendor<br><strong>Company1</strong><br><em>(@contact)</em>
-                  </span>
-                </div>
-                <div class="col-5">
-                  <span class="ends">
-                    Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
-                  </span>
-                </div>
-              </div>
-              <form action="submit">
-                <label for="quantity-text">Place Bid:</label>
-                <input placeholder="500 K" class="quantity-text">
-                <button type="submit" id="form-submit" class="main-button">Submit Now</button>
-              </form>
-            </div>
+
+
+            <!-- see the photo changes in real time, no upload needed-->
+            <script> 
+              function previewImage(event) {
+                const output = document.getElementById('vendor-preview');
+                output.src = URL.createObjectURL(event.target.files[0]);
+              }
+            </script>
+            
 
             
             <!-- <div class="col-lg-12">
