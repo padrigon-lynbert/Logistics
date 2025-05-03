@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking History</title>
+  <link rel="stylesheet" href="vehicle_reservation/VR.css">
+
+  <style></style>
+</head>
+<body>
+  <div class="history-container">
+    <h1 id="history-h1">Booking History</h1>
+    <!-- Search Form -->
+<form class="search-form" onsubmit="return false;">
+  <input id="search-input" type="search" placeholder="Search bookings..." autocomplete="off" />
+  <button type="button" id="filter-button">Filter</button>
+</form>
+
+<div class="stat-history">
+    <h2>Approved Bookings</h2>
+    <table id="approved-table">
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>User</th>
+          <th>Vehicle</th>
+          <th>Destination</th>
+          <th>Pickup Date</th>
+          <th>Return Date</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody id="approved-tbody"></tbody>
+    </table>
+
+    <h2>Rejected Bookings</h2>
+    <table id="rejected-table">
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>User</th>
+          <th>Vehicle</th>
+          <th>Destination</th>
+          <th>Pickup Date</th>
+          <th>Return Date</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody id="rejected-tbody"></tbody>
+    </table>
+  </div>
+  <!-- Reset Button -->
+<button type="button" onclick="resetBookingHistory()" id="reset-history">Reset History</button>
+  </div>
+
+  <script src="VR.js"></script>
+</body>
+</html>
