@@ -24,11 +24,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
-    # path('init/', include('app_init.urls')),
-    path('vendor/', include('vendor_portal.urls')),
+    path('vendor/', include('User_access.vendor_portal.urls')),
     path('audit/', include('audit_management.urls')),
     path('vehicle/', include('vehicle_reservation.urls')),
     path('fleet/', include('fleet_management.urls')),
     path('docs/', include('documents_tracking.urls')),
-    path('docs/', include('market.urls')),
+    path('docs/', include('Vendor_access.market.urls')),
+    path('docs/', include('User_access.market_user.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

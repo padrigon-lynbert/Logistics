@@ -10,6 +10,7 @@ class UserInfo(models.Model):
 
     class Meta:
         db_table = 'user_info'
+        managed = True
 
     def __str__(self):
         return self.email

@@ -44,11 +44,40 @@ def signup(request):
 
 
 
-
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth.hashers import check_password
+from .models import UserInfo
 
 
 from django.contrib.auth.hashers import check_password
 from .models import UserInfo
+from django.shortcuts import render, redirect
+
+# def signin(request):
+#     if request.method == 'POST':
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
+
+        
+#         try:
+#             user = UserInfo.objects.get(email=email)
+#             print(f"Found user: {user.name}, Stored password: {user.password}")  # Debug
+            
+#             if check_password(password, user.password):
+#                 print("Password matched!")  # Debug
+#                 return redirect('index_market')  # Redirect to the home page after successful login
+#             else:
+#                 print("Password mismatch!")  # Debug
+#                 return render(request, 'signin.html', {'error': 'Invalid pass'})
+
+#         except UserInfo.DoesNotExist:
+#             print("User not found!")  # Debug
+#             return render(request, 'signin.html', {'error': 'User not found'})
+
+#     return render(request, 'signin.html')
+
+from django.contrib.auth.hashers import check_password
 
 def signin(request):
     if request.method == 'POST':
@@ -57,15 +86,25 @@ def signin(request):
 
         try:
             user = UserInfo.objects.get(email=email)
-            if check_password(password, user.password):
-                # Add login logic here if needed (session, etc.)
+            print(f"Stored hash: {user.password}")
+            print(f"Entered pass: {password}")
+            
+            # Test the hash directly
+            result = check_password(password, user.password)
+            print(f"Check result: {result}")
+
+            if result:
                 return redirect('index_market')
             else:
-                return render(request, 'signin.html', {'error': 'Invalid credentials'})
+                return render(request, 'signin.html', {'error': 'Invalid pass'})
+
         except UserInfo.DoesNotExist:
             return render(request, 'signin.html', {'error': 'User not found'})
 
     return render(request, 'signin.html')
+
+
+
 
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
@@ -74,9 +113,13 @@ from passlib.hash import pbkdf2_sha256
 from django.core.exceptions import ValidationError
 
 
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.hashers import make_password
+
+from django.db import IntegrityError 
+
 def vendor_signup(request):
     if request.method == 'POST':
-        # Extract other form data
         name = request.POST['name']
         email = request.POST['email']
         password = request.POST['password']
@@ -85,41 +128,32 @@ def vendor_signup(request):
         raw_bid = request.POST.get('bid')
         bid = int(raw_bid) if raw_bid else None
 
-
-        # Handle image upload with check
         if 'image' in request.FILES:
             image = request.FILES['image']
             fs = FileSystemStorage()
             filename = fs.save(image.name, image)
-            img_url = fs.url(filename)  # <- This returns /media/filename.ext
+            img_url = fs.url(filename)
         else:
             img_url = None
 
-        # Hash the password
-        hashed_password = pbkdf2_sha256.hash(password)
+        hashed_password = make_password(password)
 
-        # Print for debugging
-        print(f"Name: {name}, Email: {email}, Service: {service}, About: {about}, Bid: {bid}, Image URL: {img_url}")
+        try:
+            user_info = UserInfo(
+                name=name,
+                email=email,
+                password=hashed_password,
+                info=f"{service} - {about}",
+                bid=bid,
+                img=img_url
+            )
+            user_info.save()
+            return redirect('signin')
 
-        # Create and save UserInfo
-        user_info = UserInfo(
-            name=name,
-            email=email,
-            password=hashed_password,
-            info=f"{service} - {about}",
-            bid=bid,
-            img=img_url
-        )
-        user_info.save()
+        except IntegrityError:
+            return render(request, 'vendor_signup.html', {
+                'error': 'Email already exists. Try signing in or use another email.'
+            })
 
-        # Redirect to the 'signin' page
-        return redirect('signin')
-
-    # If the request is not POST, render the signup page
     return render(request, 'vendor_signup.html')
-
-
-
-
-
 

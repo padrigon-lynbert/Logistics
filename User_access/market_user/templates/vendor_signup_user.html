@@ -22,7 +22,7 @@
 </head>
 <body>
 
-{% include 'imports/market_header.html' %}
+  {% include 'imports/market_header_user.html' %}
 
     <div class="page-heading normal-space">
         <div class="container">
@@ -44,6 +44,10 @@
         </div>
     </div>
  
+    {% if error %}
+    <p style="color: red; background-color: black; text-align: center;">{{ error }}</p>
+{% endif %}
+
     
 
     <!-- Signup -->
