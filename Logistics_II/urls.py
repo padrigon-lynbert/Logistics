@@ -23,7 +23,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('dashboard.urls')),
+    path('', include('temporary_microf.urls')),
+    path('user_dash/', include('User_access.dashboard.urls')),
     path('vendor/', include('User_access.vendor_portal.urls')),
     path('audit/', include('User_access.audit_management.urls')),
     path('vehicle/', include('User_access.vehicle_reservation.urls')),
