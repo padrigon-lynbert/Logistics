@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class AppInitConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'documents_tracking'
+    name = 'User_access.documents_tracking'

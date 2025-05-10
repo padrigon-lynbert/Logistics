@@ -41,12 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard',
-    # 'app_init',
     'User_access.vendor_portal',
-    'audit_management',
-    'vehicle_reservation',
-    'fleet_management',
-    'documents_tracking',
+    'User_access.audit_management',
+    'User_access.vehicle_reservation',
+    'User_access.fleet_management',
+    'User_access.documents_tracking',
     'Vendor_access.market',
     'User_access.market_user',
  ]
@@ -63,6 +62,7 @@ MIDDLEWARE = [
     'Logistics_II.middleware.block_urls.BlockAllDirectURLMiddleware',
 ]
 
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 TEMPLATES = [
     {

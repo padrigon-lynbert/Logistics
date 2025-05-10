@@ -205,7 +205,8 @@ button {
       </div>
 
       <div class="right-content">
-        <img id="carImage" src="mc.png" alt="Car Image">
+        {% load static %}
+        <img id="carImage" src="{% static 'car1.png' %}" alt="Car Image">
         <div class="dots">
           <span class="dot"></span>
           <span class="dot"></span>
@@ -220,7 +221,10 @@ button {
   </main>
 
   <script>
-    const images = ['mc.png', 'car-2.png', 'car-3.png'];
+    const images = [
+      "{% static 'car2.png' %}", 
+      "{% static 'car2.png' %}", 
+      "{% static 'car3.png' %}"];
     let currentIndex = 0;
 
     const img = document.getElementById('carImage');
