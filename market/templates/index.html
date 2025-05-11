@@ -9,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <title>Marketplace - HTML CSS Template</title>
+    <title>Trulend</title>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -22,13 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 577 Liberty Market
-
-https://templatemo.com/tm-577-liberty-market
-
--->
   </head>
 
 <body>
@@ -46,10 +40,34 @@ https://templatemo.com/tm-577-liberty-market
   </div>
   <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  {% include 'imports/market_header.html' %}
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <!-- <a href="{# % url 'dashboard' % #}" class="logo"> -->
+                    <a href="{% url 'index_market' %}" class="logo">
+                        <img src="{% static 'images/random-logo.png' %}" style="border-radius: 80px; height: 50px; width: auto;" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="{% url 'index_market' %}" class="active">Home</a></li>
+                        <li><a href="{% url 'explore' %}"> Explore</a></li>
+                        <li><a href="{% url 'signin' %}">Profile</a></li>
+                        <li><a href="{% url 'vendor_signup' %}">Become a Vendor</a></li>
+                      </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
 
-  <!-- ***** Header Area End ***** -->
 
   <!-- ***** Main Banner Area Start ***** -->
   <div class="main-banner" id="main_banner">

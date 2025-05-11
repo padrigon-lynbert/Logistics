@@ -14,67 +14,10 @@ def create(request):
 
 
 
-from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password
-from .forms import SignupForm
-from .models import UserInfo  # Assuming you have a UserInfo model created
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            password = make_password(form.cleaned_data['password'])  # Hash the password
-            info = form.cleaned_data['info']
-            bid = form.cleaned_data['bid']
-
-            # Create a new user and save
-            user = UserInfo(name=name, email=email, password=password, info=info, bid=bid)
-            user.save()
-
-            return redirect('index_market')  # Redirect to a login page (you can adjust this)
-    else:
-        form = SignupForm()
-
-    return render(request, 'signup.html', {'form': form})
-
-
-
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import check_password
+from django.shortcuts import render, redirect
 from .models import UserInfo
-
-
-from django.contrib.auth.hashers import check_password
-from .models import UserInfo
-from django.shortcuts import render, redirect
-
-# def signin(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-
-        
-#         try:
-#             user = UserInfo.objects.get(email=email)
-#             print(f"Found user: {user.name}, Stored password: {user.password}")  # Debug
-            
-#             if check_password(password, user.password):
-#                 print("Password matched!")  # Debug
-#                 return redirect('index_market')  # Redirect to the home page after successful login
-#             else:
-#                 print("Password mismatch!")  # Debug
-#                 return render(request, 'signin.html', {'error': 'Invalid pass'})
-
-#         except UserInfo.DoesNotExist:
-#             print("User not found!")  # Debug
-#             return render(request, 'signin.html', {'error': 'User not found'})
-
-#     return render(request, 'signin.html')
-
-from django.contrib.auth.hashers import check_password
 
 def signin(request):
     if request.method == 'POST':
@@ -83,19 +26,20 @@ def signin(request):
 
         try:
             user = UserInfo.objects.get(email=email)
-            print(f"Stored hash: {user.password}")
-            print(f"Entered pass: {password}")
-            
-            # Test the hash directly
-            result = check_password(password, user.password)
-            print(f"Check result: {result}")
+            stored_hash = user.password
 
-            if result:
-                return redirect('index_market')
+            print(f"Entered: {password}")
+            print(f"Stored: {stored_hash}")
+
+            if check_password(password, stored_hash):
+                print("Password correct")
+                return redirect('author')  # Success redirect here
             else:
-                return render(request, 'signin.html', {'error': 'Invalid pass'})
+                print("Wrong password")
+                return render(request, 'signin.html', {'error': 'Invalid password'})
 
         except UserInfo.DoesNotExist:
+            print("No user found")
             return render(request, 'signin.html', {'error': 'User not found'})
 
     return render(request, 'signin.html')
