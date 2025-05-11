@@ -60,11 +60,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Logistics_II.middleware.block_urls.StrictRefererBlockMiddleware',
+    'Logistics_II.middleware.block_urls.BlockAllDirectURLMiddleware',
 
 ]
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+
 
 TEMPLATES = [
     {
