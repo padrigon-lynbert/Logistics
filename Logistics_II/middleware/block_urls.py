@@ -1,7 +1,7 @@
 from django.http import HttpResponseForbidden
 from django.conf import settings
 
-class BlockAllDirectURLMiddleware:
+class StrictRefererBlockMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
@@ -9,13 +9,11 @@ class BlockAllDirectURLMiddleware:
         if settings.DEBUG:
             return self.get_response(request)
 
-        allowed_paths = ['/login/', '/']  # add more if needed
+        referer = request.META.get('HTTP_REFERER', '')
+        host = request.get_host()
 
-        if request.path in allowed_paths:
-            request.session['visited'] = True
-            return self.get_response(request)
-
-        if not request.session.get('visited', False):
-            return HttpResponseForbidden("Direct URL access is not allowed.")
+        # Block if no referer or external referer
+        if not referer.startswith(f'https://{host}'):
+            return HttpResponseForbidden("Direct URL access is blocked.")
 
         return self.get_response(request)

@@ -60,7 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Logistics_II.middleware.block_urls.BlockAllDirectURLMiddleware',
+    'Logistics_II.middleware.block_urls.StrictRefererBlockMiddleware',
+
 ]
 
 X_FRAME_OPTIONS = 'ALLOWALL'
