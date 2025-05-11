@@ -10,15 +10,18 @@ class BlockAllDirectURLMiddleware:
         if settings.DEBUG:
             return self.get_response(request)
 
-        # List of allowed URLs
+        # List of allowed paths/URLs
         allowed_urls = [
-            'https://logistics-production-d386.up.railway.app',  # Your allowed URL
+            '/',  # Allow homepage
+            'https://logistics-production-d386.up.railway.app',  # Main site
         ]
 
-        # If the referer is one of the allowed URLs, bypass the blocking
         referer = request.META.get('HTTP_REFERER', '')
-        if any(referer.startswith(url) for url in allowed_urls):
-            return self.get_response(request)
 
-        # If the referer is not allowed, block direct URL access
+        # Allow request if referer matches any of the allowed URLs or paths
+        for allowed_url in allowed_urls:
+            if referer.startswith(allowed_url) or request.path.startswith(allowed_url):
+                return self.get_response(request)
+
+        # Block direct URL access
         return HttpResponseForbidden("Direct URL access is blocked.")
