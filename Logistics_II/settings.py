@@ -30,7 +30,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ['localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,15 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'temporary_microf',
-    'User_access.dashboard',
-    'User_access.vendor_portal',
-    'User_access.audit_management',
-    'User_access.vehicle_reservation',
-    'User_access.fleet_management',
-    'User_access.documents_tracking',
-    'Vendor_access.market',
-    'User_access.market_user',
+    'market',
  ]
 
 MIDDLEWARE = [
