@@ -40,14 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'temporary_microf',
     'User_access.dashboard',
     'User_access.vendor_portal',
     'User_access.audit_management',
     'User_access.vehicle_reservation',
     'User_access.fleet_management',
     'User_access.documents_tracking',
-    'Vendor_access.market',
     'User_access.market_user',
  ]
 
@@ -160,8 +158,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-# DEBUG = True
+# DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = True
 # ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "127.0.0.1")]
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
 
