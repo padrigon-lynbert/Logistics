@@ -9,9 +9,15 @@ class BlockAllDirectURLMiddleware:
         if settings.DEBUG:
             return self.get_response(request)
 
+        allowed_paths = ['/login/', '/']  # whitelist login/homepage if needed
+
+        if request.path in allowed_paths:
+            return self.get_response(request)
+
+        referer = request.META.get('HTTP_REFERER', '')
         host = request.get_host()
-        if host != 'logistics-production-d386.up.railway.app':
-            return HttpResponseForbidden("Access denied.")
+
+        if not referer.startswith(f'https://{host}'):
+            return HttpResponseForbidden("Direct URL access is not allowed.")
 
         return self.get_response(request)
-
