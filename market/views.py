@@ -6,9 +6,6 @@ def index_market(request):
 def explore(request):
     return render(request, 'explore.html')
 
-def item_details(request):
-    return render(request, 'details.html')
-
 def author(request):
     return render(request, 'author.html')
 
