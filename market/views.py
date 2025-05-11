@@ -13,8 +13,10 @@ def create(request):
     return render(request, 'create.html')
 
 
-from django.shortcuts import render, redirect
+
+
 from django.contrib.auth.hashers import check_password
+from django.shortcuts import render, redirect
 from .models import UserInfo
 
 def signin(request):
@@ -24,19 +26,20 @@ def signin(request):
 
         try:
             user = UserInfo.objects.get(email=email)
-            print(f"Stored hash: {user.password}")
-            print(f"Entered pass: {password}")
-            
-            # Test the hash directly
-            result = check_password(password, user.password)
-            print(f"Check result: {result}")
+            stored_hash = user.password
 
-            if result:
-                return redirect('index_market')
+            print(f"Entered: {password}")
+            print(f"Stored: {stored_hash}")
+
+            if check_password(password, stored_hash):
+                print("Password correct")
+                return redirect('author')  # Success redirect here
             else:
-                return render(request, 'signin.html', {'error': 'Invalid pass'})
+                print("Wrong password")
+                return render(request, 'signin.html', {'error': 'Invalid password'})
 
         except UserInfo.DoesNotExist:
+            print("No user found")
             return render(request, 'signin.html', {'error': 'User not found'})
 
     return render(request, 'signin.html')
