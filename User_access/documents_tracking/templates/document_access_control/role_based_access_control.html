@@ -79,14 +79,17 @@
                     </thead>
                     <tbody>
                     <tr>
-                            <td>John Doe</td>
-                            <td>johndoe@gmail.com</td>
-                            <td>27</td>
-                            <td>091234567</td>
-                            <td>Admin</td>
-                            <td>Can modify all files</td>
-
-
+                        <td>John Doe</td>
+                        <td>johndoe@gmail.com</td>
+                        <td>27</td>
+                        <td>091234567</td>
+                        <td>Admin</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="active">Can modify own files</option>
+                                <option value="inactive">Can modify all files</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Jane Doe</td>
@@ -94,7 +97,12 @@
                         <td>27</td>
                         <td>091234567</td>
                         <td>Admin</td>
-                        <td>Can modify all files</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="active">Can modify own files</option>
+                                <option value="inactive">Can modify all files</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Alice Smith</td>
@@ -102,7 +110,12 @@
                         <td>27</td>
                         <td>091234567</td>
                         <td>Staff</td>
-                        <td>Can modify own files</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="active">Can modify own files</option>
+                                <option value="inactive">Can modify all files</option>
+                            </select>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
