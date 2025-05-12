@@ -7,13 +7,19 @@ def explore(request):
     return render(request, 'explore.html')
 
 def author(request):
-    return render(request, 'author.html')
+    user_id = request.session.get('user_id')
+
+    if not user_id:
+        return redirect('signin')  # Not logged in
+
+    try:
+        user = UserInfo.objects.get(id=user_id)
+        return render(request, 'author.html', {'user': user})
+    except UserInfo.DoesNotExist:
+        return redirect('signin')
 
 def create(request):
     return render(request, 'create.html')
-
-
-
 
 from django.contrib.auth.hashers import check_password
 from django.shortcuts import render, redirect
@@ -32,8 +38,8 @@ def signin(request):
             print(f"Stored: {stored_hash}")
 
             if check_password(password, stored_hash):
-                print("Password correct")
-                return redirect('author')  # Success redirect here
+                request.session['user_id'] = user.id  # Save user.id
+                return redirect('author') # success page
             else:
                 print("Wrong password")
                 return render(request, 'signin.html', {'error': 'Invalid password'})

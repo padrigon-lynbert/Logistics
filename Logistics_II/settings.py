@@ -50,12 +50,15 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Logistics_II.middleware.block_urls.StrictRefererBlockMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', #enable framing
+    'Logistics_II.middleware.block_urls.StrictRefererBlockMiddleware', #url pathing blocker
+    'django.contrib.sessions.middleware.SessionMiddleware', #enable sessions
 
 ]
 
-X_FRAME_OPTIONS = 'ALLOWALL'
+X_FRAME_OPTIONS = 'ALLOWALL' #enable framing
+SESSION_ENGINE = 'django.contrib.sessions.backends.db' #enable session
+
 
 TEMPLATES = [
     {
@@ -155,4 +158,3 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
 DEBUG = True
 # ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "127.0.0.1")]
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
-

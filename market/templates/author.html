@@ -23,13 +23,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 577 Liberty Market
-
-https://templatemo.com/tm-577-liberty-market
-
--->
   </head>
 
 <body>
@@ -43,8 +37,9 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <!-- <a href="{# % url 'dashboard' % #}" class="logo"> -->
-                    <a href="{% url 'index_market' %}" class="logo">
-                        <img src="{% static 'images/random-logo.png' %}" style="border-radius: 80px; height: 50px; width: auto;" alt="">
+                      <a href="{% url 'index_market' %}" class="logo" style="padding: 15px;">
+                        <!-- <img src="{% static 'images/TruLend.png' %}" style="border-radius: 80px; height: 90px; width: 150px;" alt=""> -->
+                         <h2 style="color: #7453fc;">TruLend</h2>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -70,7 +65,7 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-12">
           <h6>Author Details</h6>
           <h2>View Details For Author</h2>
-          <span>Home &gt; <a href="#">Author</a></span>
+          <!-- <span>Home &gt; <a href="#">Author</a></span> -->
           <div class="buttons">
             <div class="main-button">
               <a href="explore.html">Services needed</a>
@@ -87,45 +82,29 @@ https://templatemo.com/tm-577-liberty-market
   <div class="author-page">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <div class="author">
-            <img src="assets/images/single-author.jpg" alt="" style="border-radius: 50%; max-width: 170px;">
-            <h4>Melanie Smith <br> <a href="#">@melanie32</a></h4>
+
+        <!-- display info -->
+        <div class="author-page">
+          <div class="container">
+            <div class="row">
+              <div class="author-info">
+                <h2>{{ user.name }}</h2>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Info:</strong> {{ user.info }}</p>
+                <p><strong>Bid:</strong> {{ user.bid }}</p>
+                {% if user.img %}
+                  <img src="{{ user.img }}" alt="Profile Image" style="max-width: 200px;">
+                {% else %}
+                  <p>No image uploaded.</p>
+                {% endif %}
+              </div>
+            </div>
           </div>
         </div>
+
+        
         <div class="col-lg-6">
-          <div class="right-info">
-            <div class="row">
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-heart"></i>
-                  <h6>1238 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-hand"></i>
-                  <h6>1238 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-dollar"></i>
-                  <h6>1238 <em>Likes</em></h6>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-5">
-                <h5>559 Followers</h5>
-              </div>
-              <div class="col-7">
-                <div class="main-button">
-                  <a href="#">Follow @melanie32</a>
-                </div>
-              </div>
-            </div>
-          </div>
+        
         </div>
         <div class="col-lg-12">
           <div class="section-heading">
