@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Assignment</title>
+
+  <style>
+
+  * {
+      margin: 0;
+      padding: 0;
+    }
+
+  body {
+      background: #bdccdc;
+    }
+
+
+  nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #363c61 !important;
+  height: 90px;
+}
+    /* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #363c61;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  margin: 15px 0%;
+  border-radius: 12px;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
+
+
+
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 100px;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin: 0 400px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px 0;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
+  header {
+      background-color: #34495e;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 10px 150px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #2c3c8c;
+      margin: 20px;
+      text-align: center;
+      font-size: 24px; /* Larger heading font size */
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 18px; /* Larger label font size */
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+       color: #2c3c8c;
+    }
+
+
+    ::placeholder {
+         color: #2c3c8c;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="file"],
+    textarea {
+     color: #2c3c8c;
+      width: 100%;
+      padding: 14px; /* Increased padding */
+      font-size: 16px; /* Larger input font size */
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 14px 28px; /* Increased button padding */
+      font-size: 16px; /* Larger button font size */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-submit {
+     background-color: #363c61;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #2ecc71;
+    }
+
+    .btn-reset {
+      background-color: #363c61;
+      color: white;
+      float: right;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-reset:hover {
+      background-color: #c0392b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+
+    th, td {
+      padding: 14px; /* Increased padding */
+      text-align: left;
+      font-size: 16px; /* Larger table text size */
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #fff;
+      color: #2c3c8c;
+    }
+
+    td img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      th, td {
+        font-size: 15px; /* Adjusted for smaller screens */
+      }
+    }
+
+
+
+
+
+
+ footer {
+      background-color:#363c61;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 200px;
+      font-size: 0.9rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <div id="logo">LOGO</div>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Maintenance Management</a>
+        <ul class="dropdown-content">
+          <li><a href="preventive_maintenance_scheduling.html">Preventive Management Scheduling</a></li>
+          <li><a href="maintenance_history_logging.html">Maintenance History Logging</a></li>
+          <li><a href="asset_management.html">Asset Management</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Driver Management</a>
+        <ul class="dropdown-content">
+          <li><a href="driver_ass.html">Driver Assignment</a></li>
+          <li><a href="driver_performance_monitoring.html">Driver Performance Monitoring</a></li>
+          <li><a href="vehicle_tracking.html">Vehicle Tracking</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Safety and Compliance</a>
+        <ul class="dropdown-content">
+          <li><a href="vehicle_inspections.html">Vehicle Inspection</a></li>
+          <li><a href="accident_reporting.html">Accident Reporting</a></li>
+          <li><a href="compliance_training.html">Compliance Training & Certification</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+  </nav>
+
+
+
+<div class="container">
+  
+  <h1>Submit Accident Report</h1>
+
+  <div class="form-group">
+    <label for="vehicleId">Vehicle ID</label>
+    <input type="text" id="vehicleId" placeholder="Enter Vehicle ID" required />
+  </div>
+
+  <div class="form-group">
+    <label for="date">Date of Accident</label>
+    <input type="date" id="date" required />
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location of Accident</label>
+    <input type="text" id="location" placeholder="Enter Location" required />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description of Accident</label>
+    <textarea id="description" rows="4" placeholder="Provide a detailed description..." required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="evidence">Upload Evidence (optional)</label>
+    <input type="file" id="evidence" accept="image/*" />
+  </div>
+
+  <button class="btn-submit" onclick="submitReport()">Submit Report</button>
+  <button class="btn-reset" onclick="resetReports()">Reset History</button>
+
+  <div id="reportList">
+    <!-- Accident reports will be displayed here -->
+  </div>
+</div>
+
+<script>
+  function getReports() {
+    return JSON.parse(localStorage.getItem('accidentReports')) || [];
+  }
+
+  function saveReports(reports) {
+    localStorage.setItem('accidentReports', JSON.stringify(reports));
+  }
+
+  function submitReport() {
+    const vehicleId = document.getElementById('vehicleId').value.trim();
+    const date = document.getElementById('date').value;
+    const location = document.getElementById('location').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const evidenceInput = document.getElementById('evidence');
+    const evidenceFile = evidenceInput.files[0];
+
+    if (!vehicleId || !date || !location || !description) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const newReport = {
+        vehicleId,
+        date,
+        location,
+        description,
+        evidence: event.target.result || null,
+      };
+
+      const reports = getReports();
+      reports.push(newReport);
+      saveReports(reports);
+
+      alert('Accident report submitted.');
+      document.getElementById('vehicleId').value = '';
+      document.getElementById('date').value = '';
+      document.getElementById('location').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('evidence').value = '';
+      displayReports();
+    };
+
+    if (evidenceFile) {
+      reader.readAsDataURL(evidenceFile);
+    } else {
+      reader.onload({ target: { result: null } });
+    }
+  }
+
+  function displayReports() {
+    const reports = getReports();
+    const reportList = document.getElementById('reportList');
+    if (reports.length === 0) {
+      reportList.innerHTML = '<p>No accident reports found.</p>';
+      return;
+    }
+
+    let html = ` 
+      <h2>Report History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Vehicle ID</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    reports.forEach(report => {
+      html += `
+        <tr>
+          <td>${report.vehicleId}</td>
+          <td>${report.date}</td>
+          <td>${report.location}</td>
+          <td>${report.description}</td>
+          <td>${report.evidence ? `<img src="${report.evidence}" alt="Evidence">` : 'None'}</td>
+        </tr>
+      `;
+    });
+
+    html += '</tbody></table>';
+    reportList.innerHTML = html;
+  }
+
+  function resetReports() {
+    if (confirm('Are you sure you want to delete all reports?')) {
+      localStorage.removeItem('accidentReports');
+      displayReports();
+    }
+  }
+
+  displayReports();
+</script>
+  <footer>
+    &copy; 2025 Fleet Management System - Compliance Division. All Rights Reserved.
+  </footer>
+
+ 
+</body>
+</html>

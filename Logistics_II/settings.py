@@ -40,15 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard',
-    # 'app_init',
-    'vendor_portal',
-    'audit_management',
-    'vehicle_reservation',
-    'fleet_management',
-    'documents_tracking',
-    'market',
-]
+    'temporary_microf',
+    'User_access.dashboard',
+    'User_access.vendor_portal',
+    'User_access.audit_management',
+    'User_access.vehicle_reservation',
+    'User_access.fleet_management',
+    'User_access.documents_tracking',
+    'Vendor_access.market',
+    'User_access.market_user',
+ ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,8 +60,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Logistics_II.middleware.block_urls.BlockAllDirectURLMiddleware',
 ]
 
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 TEMPLATES = [
     {
@@ -90,10 +93,18 @@ WSGI_APPLICATION = 'Logistics_II.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'logistic2',  # The database name
+        'USER': 'logistic2_user',  # The username for the database
+        'PASSWORD': 'RnOMkUBoAX06KJ7crw3mBgl68pN3ISyf',  # The password you received
+        'HOST': 'dpg-d0e74ch5pdvs73aqmnr0-a.oregon-postgres.render.com',  # The external hostname
+        'PORT': '5432',  # The default PostgreSQL port
     }
 }
+
+
+
+
 
 
 # Password validation
@@ -138,6 +149,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Settings for serving media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -149,3 +163,4 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
 DEBUG = True
 # ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "127.0.0.1")]
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
+
