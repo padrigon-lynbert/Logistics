@@ -106,10 +106,10 @@
 }
       
       .dropdown-content li {
-        padding: 12px 16px;
+        padding: 27px 16px;
       }
       
-      .dropdown-content li a {
+      .dropdown a {
         color: #fff;
         text-decoration: none;
         display: block;
@@ -132,35 +132,29 @@
       .dropdown button:hover {
         text-decoration: underline;
       }
-      
-   
-      
+         
       ul {
         list-style: none;
         display: flex;
         gap: 100px;
         margin: 0 400px;
       }
-      
-      ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 15px 0;
-      }
-      
+         
       ul li a:hover {
         text-decoration: underline;
       }
-
-
-      
+ 
     .footer {
       text-align: center;
       padding: 15px;
       background-color: #363c61;
       color: white;
       margin-top: 500px;
+    }
+
+    .dropdown .nav-active {
+      background-color: #bdccdc;
+      color: #2c3c8c;
     }
 
   </style>
@@ -172,25 +166,25 @@
       <li class="dropdown">
         <a href="#">Reservation Management</a>
         <ul class="dropdown-content">
-          <li><a href="booking_requests.html">Booking Request</a></li>
-          <li><a href="reservation_approval.html">Reservation Approval</a></li>
-          <li><a href="booking_history.html">Booking History</a></li>
+          <li><a href="{% url 'booking_requests' %}">Booking Request</a></li>
+          <li><a href="{% url 'reservation_approval' %}">Reservation Approval</a></li>
+          <li><a href="{% url 'booking_history' %}">Booking History</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#">Vehicle Allocation</a>
         <ul class="dropdown-content">
-          <li><a href="fleet_assignment.html">Fleet Assignment</a></li>
-          <li><a href="vehicle_status_monitoring.html">Vehicle Status Monitoring</a></li>
-          <li><a href="usage_reports.html">Usage Reports</a></li>
+          <li><a href="{% url 'fleet_assignment' %}">Fleet Assignment</a></li>
+          <li><a href="{% url 'vehicle_status_monitoring' %}">Vehicle Status Monitoring</a></li>
+          <li class="nav-active">Usage Reports</li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#">Maintenance Integration</a>
         <ul class="dropdown-content">
-          <li><a href="inspection_scheduling.html">Inspection Scheduling</a></li>
-          <li><a href="usage_com.html">Usage Compliance</a></li>
-          <li><a href="repair_and_maintenance_request.html">Repair & Maintenance Requests</a></li>
+          <li><a href="{% url 'inspection_scheduling' %}">Inspection Scheduling</a></li>
+          <li><a href="{% url 'usage_compliance' %}">Usage Compliance</a></li>
+          <li><a href="{% url 'repair_and_maintenance_request' %}">Repair &amp; Maintenance Requests</a></li>
         </ul>
       </li>
     </ul>
