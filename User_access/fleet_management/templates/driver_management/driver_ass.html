@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driver Performance</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fleet Management</title>
 
   <style>
     * {
@@ -13,8 +13,6 @@
 
     body {
       background: #bdccdc;
-      font-size: 18px;
-      font-family: Arial, sans-serif;
     }
 
     nav {
@@ -26,7 +24,6 @@
       height: 90px;
     }
 
-    /* Dropdown Styles */
     .dropdown {
       position: relative;
     }
@@ -51,7 +48,6 @@
       color: #fff;
       text-decoration: none;
       display: block;
-      font-size: 18px;
     }
 
     .dropdown:hover .dropdown-content,
@@ -63,7 +59,7 @@
       background: none;
       border: none;
       color: #fff;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
     }
 
@@ -72,7 +68,7 @@
     }
 
     #logo {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: bold;
       margin: 0 100px;
       color: #fff;
@@ -88,7 +84,7 @@
     ul li a {
       color: #fff;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 18px;
       padding: 15px 0;
     }
 
@@ -96,7 +92,6 @@
       text-decoration: underline;
     }
 
-  
     h1 {
       background-color: #363c61;
       color: white;
@@ -106,39 +101,41 @@
     }
 
     main {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
+      width: 50%;
+      margin: 90px auto;
       padding: 20px;
+      background: white;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-  h2 {
+    h2 {
       color: #2c3c8c;
       margin: 20px 0;
+    }
+
+    p.description {
+      font-size: 20px;
+      color: #2c3c8c;
+      margin-bottom: 20px;
     }
 
     form {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
+      margin-bottom: 20px;
     }
 
-    form input, form select, form textarea {
+    form input, form select {
       padding: 10px;
-      font-size: 16px;
+      font-size: 18px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
-    form textarea {
-      grid-column: span 2;
-      resize: vertical;
-    }
-
     form button {
-       grid-column: span 2;
+      grid-column: span 2;
       padding: 10px;
       background-color: #363c61;
       color: white;
@@ -148,37 +145,37 @@
       cursor: pointer;
     }
 
-    .performance-list {
+    .assignment-list {
       margin-top: 30px;
     }
 
-    .performance-card {
+    .assignment-card {
       border: 1px solid #ddd;
-      border-left: 5px solid #006699;
+      border-left: 5px solid #004080;
       padding: 15px;
       margin-bottom: 10px;
       border-radius: 5px;
       background-color: #fdfdfd;
     }
 
-    .performance-details {
+    .assignment-card h4 {
+       color: #2c3c8c; 
+       font-size: 28px;
+       margin-bottom: 8px;
+    }
+
+    .assignment-details {
       font-size: 20px;
       color: #2c3c8c;
       line-height: 1.6;
     }
 
-    .performance-card h4 {
-      margin: 0 0 10px;
-      color: #2c3c8c;
-      font-size: 18px;
-    }
-
-  footer {
+     footer {
       background-color:#363c61;
       color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: 380px;
+      margin-top: 400px;
       font-size: 0.9rem;
     }
   </style>
@@ -191,9 +188,9 @@
       <li class="dropdown">
         <a href="#">Maintenance Management</a>
         <ul class="dropdown-content">
-          <li><a href="{% url 'preventive_maintenance_scheduling.html' %}">Preventive Management Scheduling</a></li>
-          <li><a href="{% url 'maintenance_history_logging.html' %}">Maintenance History Logging</a></li>
-          <li><a href="{% url 'asset_management.html' %}">Asset Management</a></li>
+          <li><a href="preventive_maintenance_scheduling.html">Preventive Management Scheduling</a></li>
+          <li><a href="maintenance_history_logging.html">Maintenance History Logging</a></li>
+          <li><a href="asset_management.html">Asset Management</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -216,94 +213,53 @@
   </nav>
 
   <main>
-    <h1>Driver Performance Tracking</h1>
-    <h2>Log Performance</h2>
-    <form id="performanceForm">
+    <h1>Driver Assignment</h1>
+    <h2>Assign Driver to Vehicle</h2>
+    <p class="description">
+      Use the form below to assign a driver to a vehicle, including assignment dates.
+    </p>
+
+    <form id="assignmentForm">
       <input type="text" placeholder="Driver Name" required>
-      <input type="text" placeholder="Assigned Vehicle" required>
-      <input type="date" placeholder="Trip Date" required>
-
-      <select required>
-        <option value="" disabled selected>Punctuality</option>
-        <option>Always on Time</option>
-        <option>Partially on Time</option>
-        <option>Always Late</option>
-      </select>
-
-      <select required>
-        <option value="" disabled selected>Trip Completion</option>
-        <option>Completed</option>
-        <option>Partially Completed</option>
-        <option>Missed</option>
-      </select>
-
-      <select required>
-        <option value="" disabled selected>Traffic Rule Compliance</option>
-        <option>No Violations</option>
-        <option>Minor Violation</option>
-        <option>Major Violation</option>
-      </select>
-
-      <select required>
-        <option value="" disabled selected>Driving Behavior</option>
-        <option>Safe</option>
-        <option>Moderate</option>
-        <option>Aggressive</option>
-      </select>
-
-      <input type="text" placeholder="Incident Reports (if any)">
-      <input type="text" placeholder="Equipment Condition">
-
-      <textarea placeholder="Supervisor Remarks (optional)"></textarea>
-
-      <select required>
-        <option value="" disabled selected>Performance Rating</option>
-        <option>★☆☆☆☆</option>
-        <option>★★☆☆☆</option>
-        <option>★★★☆☆</option>
-        <option>★★★★☆</option>
-        <option>★★★★★</option>
-      </select>
-
-      <button type="submit">Submit Performance</button>
+      <input type="text" placeholder="Vehicle ID" required>
+      <input type="text" placeholder="Vehicle Type" required>
+      <input type="text" placeholder="Plate Number" required>
+      <input type="date" placeholder="Assigned From" required>
+      <input type="date" placeholder="Assigned To">
+      <button type="submit">Assign Driver</button>
     </form>
 
-    <section class="performance-list" id="performanceList">
-      <h2>Performance Records</h2>
-      <!-- Entries will appear here -->
+    <section class="assignment-list" id="assignmentList">
+      <h2>Driver Assignments</h2>
+      <!-- Assignment cards will appear here -->
     </section>
   </main>
 
   <script>
-    const form = document.getElementById('performanceForm');
-    const list = document.getElementById('performanceList');
+    const form = document.getElementById('assignmentForm');
+    const list = document.getElementById('assignmentList');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const inputs = Array.from(form.elements).filter(el => el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA');
+      const inputs = Array.from(form.elements).filter(el => el.tagName === 'INPUT' || el.tagName === 'SELECT');
       const data = inputs.map(input => input.value);
 
       const card = document.createElement('div');
-      card.className = 'performance-card';
+      card.className = 'assignment-card';
       card.innerHTML = `
         <h4>${data[0]} – ${data[1]}</h4>
-        <div class="performance-details">
-          <strong>Trip Date:</strong> ${data[2]}<br>
-          <strong>Punctuality:</strong> ${data[3]}<br>
-          <strong>Trip Completion:</strong> ${data[4]}<br>
-          <strong>Traffic Rule Compliance:</strong> ${data[5]}<br>
-          <strong>Driving Behavior:</strong> ${data[6]}<br>
-          <strong>Incident Reports:</strong> ${data[7] || 'None'}<br>
-          <strong>Passenger Feedback:</strong> ${data[8] || 'N/A'}<br>
-          <strong>Remarks:</strong> ${data[9] || '–'}<br>
-          <strong>Rating:</strong> ${data[10]}
+        <div class="assignment-details">
+          <strong>Vehicle Type:</strong> ${data[2]}<br>
+          <strong>Plate Number:</strong> ${data[3]}<br>
+          <strong>Assigned From:</strong> ${data[4]}<br>
+          <strong>To:</strong> ${data[5] || '–'}<br>
         </div>
       `;
       list.appendChild(card);
       form.reset();
     });
   </script>
-<footer>
+  <footer>
     &copy; 2025 Fleet Management System - Compliance Division. All Rights Reserved.
   </footer>
 
