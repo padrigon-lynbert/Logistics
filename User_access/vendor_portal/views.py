@@ -3,8 +3,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def vendor_activation(request):
-    return render(request, 'vendor_manager/vendor_activation.html')
+# def vendor_activation(request):
+#     return render(request, 'vendor_manager/vendor_activation.html')
 def vendor_details(request):
     return render(request, 'vendor_manager/vendor_details.html')
 def tracks(request):
@@ -23,3 +23,14 @@ def invoices(request):
     return render(request, 'vendor_transaction/invoices.html')
 def cancel_transaction(request):
     return render(request, 'vendor_transaction/cancel_transaction.html')
+
+    # db
+from django.shortcuts import render
+from .models import Vendor
+
+def vendor_activation(request):
+    # Fetch all vendors
+    vendors = Vendor.objects.all()
+    
+    # Pass vendors to the template
+    return render(request, 'vendor_manager/vendor_activation.html', {'vendors': vendors})

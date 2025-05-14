@@ -2,6 +2,7 @@ from django.urls import path
 from .views import vendor_activation, tracks, vendor_details
 from .views import orders, invoices, cancel_transaction
 from .views import ratings, summary, request_meetup
+# from .views import vendor_list
 
 urlpatterns = [
     # path('vendor/home/', home, name='home'),
@@ -17,4 +18,8 @@ urlpatterns = [
     path('vendor/vendor_performance/ratings/', ratings, name='ratings'),
     path('vendor/vendor_performance/summary/', summary, name='summary'),
     path('vendor/vendor_performance/request_meetup/', request_meetup, name='request_meetup'),
+
+#db
+    # path('vendorlist/', vendor_list, name='vendor_list'),
+
 ]

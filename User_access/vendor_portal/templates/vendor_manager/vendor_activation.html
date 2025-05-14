@@ -123,10 +123,128 @@
         </div>
     </div>
 
-    {% include 'vendor_manager/tracks.html' %}
-    {% include 'vendor_manager/vendor_details.html' %}
+    {# % include 'vendor_manager/tracks.html' % #}
+
+
+<div class="container py-5">
+    <div class="card">
+        <div class="card-header bg-white border-bottom-0 py-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="mb-1">Tracks</h4>
+                    <p class="text-muted mb-0">Review vendor history</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search vendors...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <div style="max-height: 300px; overflow-y: auto; display: block;">
+                <table class="table align-middle" style="width: 100%; table-layout: fixed;">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%">Company</th>
+                            <th style="width: 25%">Email</th>
+                            <th style="width: 25%">History Log</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vendor in vendors %}
+                        <tr>
+                            <td>{{ vendor.name }}</td>
+                            <td>{{ vendor.email }}</td>
+                            <td>
+                                <details >
+                                     <summary></summary>
+                                                     "nan"
+                                </details>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-muted text-center">No vendors found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    {# % include 'vendor_manager/vendor_details.html' % #}
     
-    
+    <div class="container py-5">
+    <div class="card">
+        <div class="card-header bg-white border-bottom-0 py-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="mb-1">Vendor Details</h4>
+                    <p class="text-muted mb-0">Review vendor details</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search vendors...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            <div style="max-height: 300px; overflow-y: auto; display: block;">
+                <table class="table align-middle" style="width: 100%; table-layout: fixed;">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%">Company</th>
+                            <th style="width: 35%">Contact Now</th>
+                            <th style="width: 15%">See Details</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for vendor in vendors %}
+                        <tr>
+                            <td>{{ vendor.name }}</td>
+                            
+                            <td>
+                                
+                                <div class="d-flex flex-column flex-md-row gap-2">
+                                    <a href="#"><button class="btn btn-outline-primary btn-sm"> {{ vendor.email }}</button></a>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <details >
+                                     <summary></summary>
+                                    {{ vendor.info }}
+                                </details>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-muted text-center">No vendors found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+
     
 
 

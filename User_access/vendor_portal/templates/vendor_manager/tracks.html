@@ -17,31 +17,30 @@
             </div>
         </div>
         <div class="card-body">
+
             <table class="table align-middle">
                 <thead>
                     <tr>
-                        <th style="width: 40%">Company</th>
-                        <th style="width: 20%">See History</th>
+                        <th style="width: 25%">Company</th>
+                        <th style="width: 25%">Email</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for vendor in vendors %}
                     <tr>
-                        <td>Example Inc</td>
-                        <td style="padding-left: 25px;">ℹ️</td>
-                       
+                        <td>{{ vendor.name }}</td>
+                        <td>{{ vendor.email }}</td>
+                        <td>{{ vendor.info }}</td>
                     </tr>
+                    {% empty %}
                     <tr>
-                        <td>The Company</td>
-                        <td style="padding-left: 25px;">ℹ️</td>
-                       
+                        <td colspan="2" class="text-muted text-center">No vendors found.</td>
                     </tr>
-                    <tr>
-                        <td>Tech Solutions</td>
-                        <td style="padding-left: 25px;">ℹ️</td>
-                       
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
+
