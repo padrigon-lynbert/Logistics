@@ -208,9 +208,9 @@ ul li a:hover {
   </style>
 </head>
 <body>
-  
+  {% load static %}
   <nav>
-    <div id="logo"><img src="logo.png" alt="Microfinance"></div>
+    <div id="logo"><img src="{% static 'logo.png' %}" alt="Microfinance"></div>
     <ul>
       <li class="dropdown">
         <a href="#">Reservation Management</a>
