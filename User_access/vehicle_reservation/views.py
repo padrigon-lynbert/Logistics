@@ -20,3 +20,9 @@ def usage_reports(request):
     return render(request, 'vehicle_allocation_and_tracking/usage_reports.html')
 def vehicle_status_monitoring(request):
     return render(request, 'vehicle_allocation_and_tracking/vehicle_status_monitoring.html')
+
+# new
+
+def booking_history(request):
+    return render(request, 'reservation_management/booking_history.html')
+

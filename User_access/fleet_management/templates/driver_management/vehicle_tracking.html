@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Tracking</title>
+
+  <style>
+
+  * {
+      margin: 0;
+      padding: 0;
+    }
+
+  body {
+      background: #bdccdc;
+    }
+
+
+  nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #363c61 !important;
+  height: 90px;
+}
+    /* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #363c61;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  margin: 15px 0%;
+  border-radius: 12px;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
+
+
+
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 100px;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin: 0 400px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px 0;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
+
+    h1 {
+      background-color: #363c61;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 12px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+  
+  h2 {
+      color: #2c3c8c;
+      margin: 20px 0;
+    }
+
+    .tracking-card {
+      border: 1px solid #ddd;
+      border-left: 5px solid #363c61;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #fdfdfd;
+    }
+
+    .tracking-details {
+       font-size: 20px;
+      color: #2c3c8c;
+      line-height: 1.6;
+    }
+
+    .tracking-details strong {
+      color: #2c3c8c;
+    }
+
+    .add-btn {
+      background-color: #363c61;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: none;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    form input, form select {
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+  form button {
+       grid-column: span 2;
+      padding: 10px;
+      background-color: #363c61;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+
+   footer {
+      background-color:#363c61;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 800px;
+      font-size: 0.9rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <div id="logo">LOGO</div>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Maintenance Management</a>
+        <ul class="dropdown-content">
+          <li><a href="preventive_maintenance_scheduling.html">Preventive Management Scheduling</a></li>
+          <li><a href="maintenance_history_logging.html">Maintenance History Logging</a></li>
+          <li><a href="asset_management.html">Asset Management</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Driver Management</a>
+        <ul class="dropdown-content">
+          <li><a href="driver_ass.html">Driver Assignment</a></li>
+          <li><a href="driver_performance_monitoring.html">Driver Performance Monitoring</a></li>
+          <li><a href="vehicle_tracking.html">Vehicle Tracking</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Safety and Compliance</a>
+        <ul class="dropdown-content">
+          <li><a href="vehicle_inspections.html">Vehicle Inspection</a></li>
+          <li><a href="accident_reporting.html">Accident Reporting</a></li>
+          <li><a href="compliance_training.html">Compliance Training & Certification</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+  </nav>
+
+  
+
+  <main>
+     <h1>Vehicle Tracking</h1>
+    <h2>Track Vehicle Usage</h2>
+    <button class="add-btn" onclick="toggleForm()">Add Tracking Entry</button>
+
+    <form id="trackingForm">
+      <input type="text" placeholder="Vehicle ID" required>
+      <input type="text" placeholder="Driver Assigned" required>
+      <input type="text" placeholder="Location" required>
+      <input type="text" placeholder="Status (In Use / Idle / Maintenance)" required>
+      <input type="number" placeholder="Distance Traveled (km)" required>
+      <input type="date" required>
+      <button type="submit">Add Entry</button>
+    </form>
+
+    <section class="tracking-list" id="trackingList">
+      <!-- Tracking entries appear here -->
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('trackingForm');
+    const list = document.getElementById('trackingList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputs = Array.from(form.elements).filter(el => el.tagName === 'INPUT');
+      const data = inputs.map(input => input.value);
+
+      const card = document.createElement('div');
+      card.className = 'tracking-card';
+      card.innerHTML = `
+      <h4 style="color: #2c3c8c;">Vehicle ID: ${data[0]}</h4>
+        <div class="tracking-details">
+          <strong>Driver:</strong> ${data[1]}<br>
+          <strong>Location:</strong> ${data[2]}<br>
+          <strong>Status:</strong> ${data[3]}<br>
+          <strong>Distance Traveled:</strong> ${data[4]} km<br>
+          <strong>Date:</strong> ${data[5]}
+        </div>
+      `;
+      list.appendChild(card);
+      form.reset();
+      form.style.display = 'none';
+    });
+
+    function toggleForm() {
+      const form = document.getElementById('trackingForm');
+      form.style.display = form.style.display === 'grid' ? 'none' : 'grid';
+    }
+  </script>
+
+  <footer>
+    &copy; 2025 Fleet Management System - Compliance Division. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

@@ -4,20 +4,433 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Booking History</title>
-  <link rel="stylesheet" href="vehicle_reservation/VR.css">
 
-  <style></style>
+
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #bdccdc;
+}
+
+
+
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin: 0 400px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
+  
+  .subtitle {
+    color: #2c3c8c;
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-bottom: 4px;
+    font-weight: normal;
+    color:#2c3c8c;
+  }
+
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    color: #2c3c8c;
+    font-size: 0.75rem;
+    padding: 11px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline-offset: 2px;
+    outline-color: transparent;
+    transition: outline-color 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline-color: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  .form-group input:hover {
+    border-color: #2563eb;
+  }
+  
+  .btn-submit {
+    width: 300px;
+    background-color: #2c3c8c;
+    color: #fff;
+    font-size: 15px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-submit:hover,
+  .btn-submit:focus {
+    background-color: #1e40af;
+    outline: none;
+  }
+  
+
+  
+
+
+.search-form {
+  width: 600px;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+#search-input {
+  flex-grow: 1;
+  padding: 8px 10px;
+  font-size: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: outline-color 0.2s ease;
+}
+
+input::placeholder {
+  color:#2c3c8c; 
+}
+
+#search-input:focus {
+  outline-color: #2563eb;
+  border-color: #2563eb;
+}
+
+#filter-button {
+  background-color:#363c61;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#filter-button:hover,
+#filter-button:focus {
+  background-color: #363c61;
+  outline: none;
+}
+
+.table-wrapper {
+  overflow: auto;
+}
+
+table {
+  font-size: 0.75rem;
+  color: #000;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  color: #2c3c8c;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+th {
+ background-color: #bdccdc;
+}
+
+td img {
+  width: fit-content;
+  height: 50px;
+}
+
+#back-button, #reset-btn, #reset-history {
+  color: #fff;
+  display: block;
+  width: 20%;
+  padding: 7px 5px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #363c61;
+  cursor: pointer;
+}
+
+#back-button:hover,
+#reset-btn:hover, #reset-history:hover {
+  background-color: #363c61;
+}
+
+.approve-btn, .reject-btn {
+  background-color: #2c3c8c;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.approve-btn:hover {
+  background-color: #38a169;
+}
+
+.reject-btn:hover {
+  background-color: #e53e3e;
+}
+
+.status-text {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.status-text.approved {
+  color: green;
+}
+
+.status-text.rejected {
+  color: red;
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 768px) {
+  .approval-container {
+    width: 90%;
+  }
+
+  table {
+    font-size: 0.65rem;
+  }
+
+  #search-input {
+    font-size: 0.7rem;
+  }
+
+  #filter-button {
+    font-size: 0.7rem;
+  }
+}
+
+/*HIstory CSS*/
+
+.history-container {
+    width: 60%;
+      height: auto;
+      margin: 100px auto;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      background-color: #bdccdc;
+      border: 2px solid #000;
+      
+}
+.stat-history {
+  padding: 20px;
+}
+
+#history-h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  background-color: #363c61;
+  padding: 10px;
+  width: 100%;
+
+}
+.history-container h2 {
+  color: #2c3c8c;
+  margin: 30px 0; 
+  }
+
+#reset-history {
+  padding: 10px;
+  margin: 20px 15px;
+}
+
+#approved-table, #rejected-table {
+  margin: 30px 0;
+ 
+}
+
+        nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #363c61 !important;
+  height: 90px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #363c61;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  margin: 15px 0%;
+  border-radius: 15px;
+}
+
+.dropdown-content li {
+  padding: 27px 16px;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 100px;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin: 0 400px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #363c61;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+.dropdown .nav-active {
+  background-color: #bdccdc;
+  color: #2c3c8c;
+}
+
+  </style>
 </head>
 <body>
-  <div class="history-container">
+  <nav>
+    <div id="logo"><img src="logo.png" alt="Micro Finance"></div>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Reservation Management</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'booking_requests' %}">Booking Request</a></li>
+          <li><a href="{% url 'reservation_approval' %}">Reservation Approval</a></li>
+          <li class="nav-active">Booking History</li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Vehicle Allocation</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'fleet_assignment' %}">Fleet Assignment</a></li>
+          <li><a href="{% url 'vehicle_status_monitoring' %}">Vehicle Status Monitoring</a></li>
+          <li><a href="{% url 'usage_reports' %}">Usage Reports</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Maintenance Integration</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'inspection_scheduling' %}">Inspection Scheduling</a></li>
+          <li><a href="{% url 'usage_compliance' %}">Usage Compliance</a></li>
+          <li><a href="{% url 'repair_and_maintenance_request' %}">Repair &amp; Maintenance Requests</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+  </nav>
+
+
+  <div class="history-container" style="border: solid 1px 000;">
     <h1 id="history-h1">Booking History</h1>
     <!-- Search Form -->
+     <div class="stat-history">
 <form class="search-form" onsubmit="return false;">
   <input id="search-input" type="search" placeholder="Search bookings..." autocomplete="off" />
   <button type="button" id="filter-button">Filter</button>
 </form>
 
-<div class="stat-history">
+
     <h2>Approved Bookings</h2>
     <table id="approved-table">
       <thead>
@@ -54,6 +467,233 @@
 <button type="button" onclick="resetBookingHistory()" id="reset-history">Reset History</button>
   </div>
 
-  <script src="VR.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    const carImages = {
+      "SUV": { src: "images/suv.jpg", alt: "SUV" },
+      "VAN": { src: "images/van.jpg", alt: "VAN" },
+      "PICK-UP TRUCK": { src: "images/pickup_truck.jpg", alt: "PICK-TRUCK" },
+      "Flatbed Trucks": { src: "images/Flatbed.jpg", alt: "Flatbed Trucks" },
+    };
+  
+    //  BOOKING PAGE FUNCTIONALITY
+    if (document.getElementById("booking-form")) {
+      const bookingForm = document.getElementById("booking-form");
+  
+      function generateRequestId() {
+        const randomNum = Math.floor(10000000 + Math.random() * 90000000);
+        return "#" + randomNum.toString();
+      }
+  
+      function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        if (isNaN(d)) return "";
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
+        const year = String(d.getFullYear()).slice(-2);
+        return `${day}/${month}/${year}`;
+      }
+  
+      function addBooking(e) {
+        e.preventDefault();
+  
+        const userName = document.getElementById("user-name").value.trim();
+        const destination = document.getElementById("destination").value.trim();
+        const pickupDate = document.getElementById("pickup-date").value;
+        const returnDate = document.getElementById("return-date").value;
+        const typeCar = document.getElementById("type-car").value;
+  
+        if (!userName || !destination || !pickupDate || !returnDate || !typeCar) {
+          alert("Please fill in all fields.");
+          return false;
+        }
+  
+        const formattedPickupDate = formatDate(pickupDate);
+        const formattedReturnDate = formatDate(returnDate);
+        const requestId = generateRequestId();
+  
+        const booking = {
+          id: requestId,
+          user: userName,
+          destination,
+          pickupDate: formattedPickupDate,
+          returnDate: formattedReturnDate,
+          vehicle: typeCar,
+          image: carImages[typeCar] ? carImages[typeCar].src : "https://placehold.co/60x30?text=No+Image",
+          timeBooked: new Date().toLocaleString(),
+          approved: false
+        };
+  
+        const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        bookings.push(booking);
+        localStorage.setItem("bookings", JSON.stringify(bookings));
+  
+        const pendingBookings = JSON.parse(localStorage.getItem("pendingBookings")) || [];
+        pendingBookings.push(booking);
+        localStorage.setItem("pendingBookings", JSON.stringify(pendingBookings));
+  
+        alert("Book Reservation submit.");
+      }
+  
+      bookingForm.addEventListener("submit", addBooking);
+    }
+  
+    //  APPROVAL PAGE FUNCTIONALITY
+    if (document.getElementById("approval-tbody")) {
+      const approvalTableBody = document.getElementById("approval-tbody");
+      const searchInput = document.getElementById("search-input");
+  
+      let pendingBookings = JSON.parse(localStorage.getItem("pendingBookings")) || [];
+  
+      function renderTable(data) {
+        approvalTableBody.innerHTML = "";
+        if (data.length === 0) {
+          approvalTableBody.innerHTML = "<tr><td colspan='10'>No pending bookings.</td></tr>";
+          return;
+        }
+  
+        data.forEach((booking) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${booking.id}</td>
+            <td>${booking.user}</td>
+            <td>${booking.vehicle}</td>
+            <td>${booking.destination}</td>
+            <td>${booking.pickupDate}</td>
+            <td>${booking.returnDate}</td>
+            <td><img src="${booking.image}" alt="${booking.vehicle}" height="30" width="60"></td>
+            <td>${booking.timeBooked}</td>
+            <td>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+              <span class="status-text"></span>
+            </td>
+          `;
+          approvalTableBody.appendChild(tr);
+  
+          const approveBtn = tr.querySelector(".approve-btn");
+          const rejectBtn = tr.querySelector(".reject-btn");
+          const statusText = tr.querySelector(".status-text");
+  
+          approveBtn.addEventListener("click", () => {
+            statusText.textContent = "Approved";
+            statusText.style.color = "green";
+            saveToHistory("approvedBookings", booking);
+            removeBookingById(booking.id);
+          });
+  
+          rejectBtn.addEventListener("click", () => {
+            statusText.textContent = "Rejected";
+            statusText.style.color = "red";
+            saveToHistory("rejectedBookings", booking);
+            removeBookingById(booking.id);
+          });
+        });
+      }
+  
+      function saveToHistory(key, booking) {
+        const current = JSON.parse(localStorage.getItem(key)) || [];
+        booking.status = key === "approvedBookings" ? "Approved" : "Rejected";
+        current.push(booking);
+        localStorage.setItem(key, JSON.stringify(current));
+      }
+  
+      function removeBookingById(id) {
+        pendingBookings = pendingBookings.filter((b) => b.id !== id);
+        localStorage.setItem("pendingBookings", JSON.stringify(pendingBookings));
+        renderTable(pendingBookings);
+      }
+  
+      searchInput.addEventListener("input", () => {
+        const keyword = searchInput.value.toLowerCase();
+        const filtered = pendingBookings.filter(b =>
+          b.user.toLowerCase().includes(keyword) ||
+          b.vehicle.toLowerCase().includes(keyword) ||
+          b.destination.toLowerCase().includes(keyword)
+        );
+        renderTable(filtered);
+      });
+  
+      renderTable(pendingBookings);
+    }
+  
+    //  HISTORY PAGE FUNCTIONALITY
+    if (document.getElementById("approved-tbody") && document.getElementById("rejected-tbody")) {
+      const approvedTbody = document.getElementById("approved-tbody");
+      const rejectedTbody = document.getElementById("rejected-tbody");
+  
+      const approved = JSON.parse(localStorage.getItem("approvedBookings")) || [];
+      const rejected = JSON.parse(localStorage.getItem("rejectedBookings")) || [];
+  
+      function renderTable(data, tbody) {
+        tbody.innerHTML = "";
+        if (data.length === 0) {
+          tbody.innerHTML = "<tr><td colspan='7'>No data found.</td></tr>";
+          return;
+        }
+  
+        data.forEach((booking) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${booking.id}</td>
+            <td>${booking.user}</td>
+            <td>${booking.vehicle}</td>
+            <td>${booking.destination}</td>
+            <td>${booking.pickupDate}</td>
+            <td>${booking.returnDate}</td>
+            <td><img src="${booking.image}" alt="${booking.vehicle}" height="30" width="60"></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+  
+      renderTable(approved, approvedTbody);
+      renderTable(rejected, rejectedTbody);
+    }
+  });
+  
+  
+  function resetBookingHistory() {
+    const approvedTbody = document.getElementById('approved-tbody');
+    const rejectedTbody = document.getElementById('rejected-tbody');
+  
+    localStorage.removeItem('approvedBookings');
+    localStorage.removeItem('rejectedBookings');
+  
+  
+    approvedTbody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align: center;">No data found.</td>
+      </tr>
+    `;
+  
+    rejectedTbody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align: center;">No data found.</td>
+      </tr>
+    `;
+  
+    alert('Booking history has been reset.');
+  }
+  
+  
+  //Utility functions 
+  function goBackToBooking() {
+    window.location.href = "booking.html";
+  }
+  
+  function resetPending() {
+    localStorage.removeItem("pendingBookings");
+    location.reload();
+  }
+  
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+  
+  <footer class="footer">
+    <p>&copy; 2025 Vehicle Reservation System</p>
+  </footer>
+
 </body>
 </html>

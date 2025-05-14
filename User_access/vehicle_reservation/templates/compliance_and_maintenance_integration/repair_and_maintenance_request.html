@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Repair & Maintenance</title>
+  <title>Repair &amp; Maintenance</title>
   <style>
     * {
       box-sizing: border-box;
@@ -11,17 +11,22 @@
     }
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f4f7fa;
-      padding: 40px;
+      background-color: #bdccdc;
     }
     h1 {
       text-align: center;
       margin-bottom: 30px;
-      color: #333;
+      color: #fff;
+      width: 100%;
+      background-color: #363c61;
+      border-radius: 12px;
+      padding: 10px 0;
+
     }
     .container {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 100px auto;
+     
     }
     .card {
       background: #fff;
@@ -45,7 +50,7 @@
       font-size: 15px;
     }
     th {
-      background: #28a745;
+      background:#363c61;
       color: white;
       text-transform: uppercase;
       font-size: 14px;
@@ -74,14 +79,130 @@
     button:hover {
       background: #c82333;
     }
+
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #363c61 !important;
+  height: 90px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #363c61;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  margin: 15px 0%;
+  border-radius: 12px;
+}
+.dropdown-content li {
+  padding: 27px 16px;
+}
+
+.dropdown a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  text-decoration: underline;
+}
+
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  margin: 0 400px;
+}
+
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #363c61;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+.dropdown .nav-active {
+  background-color: #bdccdc;
+  color: #2c3c8c;
+}
+
+
+
+
   </style>
 </head>
 <body>
+  <nav>
+    <div id="logo"><img src="logo.png" alt="Micro Finance"></div>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Reservation Management</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'booking_requests' %}">Booking Request</a></li>
+          <li><a href="{% url 'reservation_approval' %}">Reservation Approval</a></li>
+          <li><a href="{% url 'booking_history' %}">Booking History</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Vehicle Allocation</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'fleet_assignment' %}">Fleet Assignment</a></li>
+          <li><a href="{% url 'vehicle_status_monitoring' %}">Vehicle Status Monitoring</a></li>
+          <li><a href="{% url 'usage_reports' %}">Usage Reports</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Maintenance Integration</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'inspection_scheduling' %}">Inspection Scheduling</a></li>
+          <li><a href="{% url 'usage_compliance' %}">Usage Compliance</a></li>
+          <li class="nav-active">Repair &amp; Maintenance Request</li>        
+        </ul>
+      </li>
+    </ul>
+    
+  </nav>
+
 
 <div class="container">
-  <h1>Repair & Maintenance</h1>
+ 
 
   <div class="card">
+     <h1>Repair &amp; Maintenance</h1>
     <table id="repairTable">
       <thead>
         <tr>
@@ -143,6 +264,10 @@ resetBtn.addEventListener('click', function() {
 // Initial Load
 loadRepairs();
 </script>
+
+<footer class="footer">
+  <p>&copy; 2025 Vehicle Reservation System</p>
+</footer>
 
 </body>
 </html>
