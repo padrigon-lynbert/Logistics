@@ -1,10 +1,19 @@
+from django.db import IntegrityError 
+from django.http import HttpResponse, Http404
+
 from django.shortcuts import render
+from django.contrib.auth.hashers import check_password, make_password
+from django.shortcuts import render, redirect
+
+from .models import UserInfo
+
 
 def index_market(request):
     return render(request, 'index.html')
-
 def explore(request):
     return render(request, 'explore.html')
+def create(request):
+    return render(request, 'create.html')
 
 def author(request):
     user_id = request.session.get('user_id')
@@ -18,12 +27,6 @@ def author(request):
     except UserInfo.DoesNotExist:
         return redirect('signin')
 
-def create(request):
-    return render(request, 'create.html')
-
-from django.contrib.auth.hashers import check_password
-from django.shortcuts import render, redirect
-from .models import UserInfo
 
 def signin(request):
     if request.method == 'POST':
@@ -53,17 +56,9 @@ def signin(request):
 
 
 
-from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render, redirect
-from .models import UserInfo
-from passlib.hash import pbkdf2_sha256
-from django.core.exceptions import ValidationError
 
 
-from django.core.files.storage import FileSystemStorage
-from django.contrib.auth.hashers import make_password
 
-from django.db import IntegrityError 
 
 def vendor_signup(request):
     if request.method == 'POST':
@@ -73,27 +68,25 @@ def vendor_signup(request):
         service = request.POST['service']
         about = request.POST['about']
         raw_bid = request.POST.get('bid')
-        bid = raw_bid if raw_bid else None
+        bid = request.POST.get('bid') or None
 
         if 'image' in request.FILES:
             image = request.FILES['image']
-            fs = FileSystemStorage()
-            filename = fs.save(image.name, image)
-            img_url = fs.url(filename)
+            img_binary = image.read()
         else:
-            img_url = None
+            img_binary = None
 
         hashed_password = make_password(password)
 
         try:
             user_info = UserInfo(
-                name=name,
-                email=email,
-                password=hashed_password,
-                info=f"{service} - {about}",
-                bid=bid,
-                img=img_url
-            )
+            name=name,
+            email=email,
+            password=hashed_password,
+            info=f"{service} - {about}",
+            bid=bid,
+            img=img_binary
+        )
             user_info.save()
             return redirect('signin')
 
@@ -104,3 +97,12 @@ def vendor_signup(request):
 
     return render(request, 'vendor_signup.html')
 
+def user_image(request, user_id):
+    try:
+        user = UserInfo.objects.get(id=user_id)
+        if user.img:
+            return HttpResponse(user.img, content_type="image/jpeg")  # or image/png, depending on your images
+        else:
+            raise Http404("No image found")
+    except UserInfo.DoesNotExist:
+        raise Http404("User not found")
