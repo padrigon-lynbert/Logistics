@@ -23,3 +23,16 @@ def regulatory_compliance_tracking(request):
     return render(request, 'safety_and_compliance/regulatory_compliance_tracking.html')
 def accident_reporting(request):
     return render(request, 'safety_and_compliance/accident_reporting.html')
+
+# 
+def asset_management(request):
+    return render(request, 'maintenance_management/asset_management.html')
+
+def header(request):
+    return render(request, 'nav_kl.html')
+def driver_ass(request):
+    return render(request, 'driver_management/driver_ass.html')
+def vehicle_tracking(request):
+    return render(request, 'driver_management/vehicle_tracking.html')
+def coplianc_training(request):
+    return render(request, 'safety_and_compliance/compliance_training.html')

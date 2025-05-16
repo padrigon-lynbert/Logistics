@@ -1,0 +1,32 @@
+<nav>
+    {% load static%}
+    <a href="{% url 'dashboard' %}">
+        <div id="logo">TruLend</div>
+    </a>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Maintenance Management</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'preventive_maintenance_scheduling' %}">Preventive Management Scheduling</a></li>
+          <li><a href="{% url 'maintenance_history_logging' %}">Maintenance History Logging</a></li>
+          <li><a href="{% url 'asset_management' %}">Asset Management</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Driver Management</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'driver_ass' %}">Driver Assignment</a></li>
+          <li><a href="{% url 'driver_performance_monitoring' %}">Driver Performance Monitoring</a></li>
+          <li><a href="{% url 'vehicle_tracking' %}">Vehicle Tracking</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Safety and Compliance</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'vehicle_inspections' %}">Vehicle Inspection</a></li>
+          <li><a href="{% url 'accident_reporting' %}">Accident Reporting</a></li>
+          <li><a href="{% url 'coplianc_training' %}">Compliance Training & Certification</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>

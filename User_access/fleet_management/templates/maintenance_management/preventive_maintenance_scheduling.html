@@ -186,36 +186,8 @@ button:hover {
 <body>
     
     
-  <nav>
-    <div id="logo">LOGO</div>
-    <ul>
-      <li class="dropdown">
-        <a href="#">Maintenance Management</a>
-        <ul class="dropdown-content">
-          <li><a href="preventive_maintenance_scheduling.html">Preventive Management Scheduling</a></li>
-          <li><a href="maintenance_history_logging.html">Maintenance History Logging</a></li>
-          <li><a href="asset_management.html">Asset Management</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Driver Management</a>
-        <ul class="dropdown-content">
-          <li><a href="driver_ass.html">Driver Assignment</a></li>
-          <li><a href="driver_performance_monitoring.html">Driver Performance Monitoring</a></li>
-          <li><a href="vehicle_tracking.html">Vehicle Tracking</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Safety and Compliance</a>
-        <ul class="dropdown-content">
-          <li><a href="vehicle_inspections.html">Vehicle Inspection</a></li>
-          <li><a href="accident_reporting.html">Accident Reporting</a></li>
-          <li><a href="compliance_training.html">Compliance Training & Certification</a></li>
-        </ul>
-      </li>
-    </ul>
-    
-  </nav>
+  {% load static%}
+  {% include 'kl_import/nav_kl.html' %}
 
 <div class="container">
   <h1>Preventive Maintenance Scheduling</h1>
