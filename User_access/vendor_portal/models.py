@@ -8,6 +8,15 @@ class Vendor(models.Model):
     password = models.CharField(max_length=255)
     bid = models.CharField(max_length=255)
     img = models.BinaryField()
+    activation_status = models.CharField(
+        choices=[
+            
+            ('inactive', 'Inactive'),
+            ('active', 'Active'),
+            ('paused', 'Paused')
+
+        ], default='inactive'
+    )
 
     class Meta:
         db_table = 'market_userinfo'

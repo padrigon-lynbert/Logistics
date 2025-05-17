@@ -34,3 +34,22 @@ def vendor_activation(request):
     
     # Pass vendors to the template
     return render(request, 'vendor_manager/vendor_activation.html', {'vendors': vendors})
+
+# ajax
+from django.shortcuts import render, redirect
+from .models import Vendor
+
+def vendor_activation_view(request):
+    if request.method == "POST":
+        vendor_id = request.POST.get("vendor_id")
+        new_status = request.POST.get("status")
+        try:
+            vendor = Vendor.objects.get(id=vendor_id)
+            vendor.activation_status = new_status
+            vendor.save()
+        except Vendor.DoesNotExist:
+            pass  # handle if needed
+        return redirect("vendor_activation")  # name your url pattern this
+
+    vendors = Vendor.objects.all()
+    return render(request, "vendor_activation.html", {"vendors": vendors})
