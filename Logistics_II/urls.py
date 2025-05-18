@@ -18,18 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from User_access.dashboard.views import dashboard
+from Admin_access.dashboard.views import dashboard
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dashboard),
-    path('user_dash/', include('User_access.dashboard.urls')),
-    path('vendor/', include('User_access.vendor_portal.urls')),
-    path('audit/', include('User_access.audit_management.urls')),
-    path('vehicle/', include('User_access.vehicle_reservation.urls')),
-    path('fleet/', include('User_access.fleet_management.urls')),
-    path('docs/', include('User_access.documents_tracking.urls')),
-    path('docs/', include('User_access.market_user.urls')),
+    path('user_dash/', include('Admin_access.dashboard.urls')),
+    path('vendor/', include('Admin_access.vendor_portal.urls')),
+    path('audit/', include('Admin_access.audit_management.urls')),
+    path('vehicle/', include('Admin_access.vehicle_reservation.urls')),
+    path('fleet/', include('Admin_access.fleet_management.urls')),
+    path('docs/', include('Admin_access.documents_tracking.urls')),
+    path('docs/', include('Admin_access.market_user.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

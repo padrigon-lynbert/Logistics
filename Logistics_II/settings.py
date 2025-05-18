@@ -40,13 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'User_access.dashboard',
-    'User_access.vendor_portal',
-    'User_access.audit_management',
-    'User_access.vehicle_reservation',
-    'User_access.fleet_management',
-    'User_access.documents_tracking',
-    'User_access.market_user',
+    'Admin_access.dashboard',
+    'Admin_access.vendor_portal',
+    'Admin_access.audit_management',
+    'Admin_access.vehicle_reservation',
+    'Admin_access.fleet_management',
+    'Admin_access.documents_tracking',
+    'Admin_access.market_user',
  ]
 
 MIDDLEWARE = [
