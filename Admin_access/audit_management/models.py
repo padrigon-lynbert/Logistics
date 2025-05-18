@@ -56,7 +56,7 @@ class Scheduling(models.Model):
                               default=Status.SCHEDULED)
     notes = models.TextField()
     created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
     def __str__(self):
         """Returns schedule start."""
