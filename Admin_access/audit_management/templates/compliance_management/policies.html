@@ -149,6 +149,9 @@
                 <td><span class="badge bg-danger">{{ audit.get_status_display }}</span></td>
               {% endif %}
               <td>{{ audit.updated_at }}</td>
+              <td>
+                <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+              </td>
              </tr>
             {% empty %}
              <tr>
