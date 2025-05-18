@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
-class DashboardConfig(AppConfig):
+class AppInitConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'User_access.dashboard'
+    name = 'Admin_access.vehicle_reservation'
