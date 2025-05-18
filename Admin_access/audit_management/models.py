@@ -19,7 +19,7 @@ class Audit(models.Model):
                                   default=Audit_Types.INTERNAL)
     
     # Choices for status types.
-    class Status(models.Choices):
+    class Status(models.TextChoices):
         PLANNED = 'PLN', 'Planned'
         IN_PROGRESS = 'INP', 'In Progress'
         COMPLETED = 'CMP', 'Completed'
@@ -38,7 +38,7 @@ class Audit(models.Model):
 
 class Scheduling(models.Model):
     schedule_id = models.AutoField(primary_key=True)
-    audit_id = models.ForeignKey(Audit.audit_id, on_delete=models.CASCADE)
+    audit_id = models.ForeignKey(Audit, on_delete=models.CASCADE)
     schedule_start = models.DateField()
     schedule_end = models.DateField()
     location = models.CharField(max_length=255)
@@ -71,7 +71,7 @@ class Logistics(models.Model):
         VEHICLE = 'VEH', 'Vehicle'
         SUPPLIER = 'SUP', 'Supplier'
     # Choices for entity type.
-    entity_type = models.CharField(max_length='3',
+    entity_type = models.CharField(max_length=3,
                                    choices=Entity_Type.choices)
     
     name = models.CharField(max_length=255)
