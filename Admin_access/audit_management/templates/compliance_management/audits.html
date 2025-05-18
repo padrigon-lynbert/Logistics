@@ -22,13 +22,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Compliance Review Q1</td>
-              <td><span class="badge bg-warning text-dark">In Progress</span></td>
-              <td>Apr 24, 2025</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-outline-secondary">Open</a>
-              </td>
+            {% for audit in audits %}
+             <tr>
+              <td>{{ audit.title }}</td>
+              <td>{{ audit.status }}</td>
+              <td>{{ audit.updated_at }}</td>
+             </tr>
+            {% empty %}
+             <tr>
+              <td>No data found.</td>
+             </tr>
+            {% endfor %}
             </tr>
             <tr>
               <td>Vendor Quality Check</td>
