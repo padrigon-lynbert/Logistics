@@ -61,3 +61,20 @@ class Scheduling(models.Model):
     def __str__(self):
         """Returns schedule start."""
         return self.schedule_start
+    
+class Logistics(models.Model):
+    entity_id = models.AutoField(primary_key=True)
+
+    class Entity_Type(models.TextChoices):
+        WAREHOUSE = 'WAR', 'Warehousing'
+        VEHICLE = 'VEH', 'Vehicle'
+        SUPPLIER = 'SUP', 'Supplier'
+
+    entity_type = models.CharField(max_length='3',
+                                   choices=Entity_Type.choices)
+    name = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    details = models.TextField()
+
+    def __str__(self):
+        return self.name
