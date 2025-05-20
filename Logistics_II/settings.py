@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 X_FRAME_OPTIONS = 'ALLOWALL' # works but need scrf_token in some functions
 # CSP_FRAME_ANCESTORS = ["*"]  # If you're using Content-Security-Policy
-
+# X_FRAME_OPTIONS = None # net tested, the first one already works
 
 TEMPLATES = [
     {

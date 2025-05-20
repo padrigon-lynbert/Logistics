@@ -124,29 +124,33 @@
                         </thead>
                         <tbody>
 
-{% for vendor in vendors %}
-<tr>
-    <td>{{ vendor.id }}</td>
-    <td>{{ vendor.name }}</td>
-    <td>
-        <details>
-            <summary>View Logs</summary>
-{% with history_dict|dictsort:vendor.id as logs %}
-    {% if logs %}
-        {% for log in history_dict|dictsort:vendor.id %}
-            <div>{{ log }}</div>
-        {% endfor %}
-    {% else %}
-        <div>No transactions found for ID {{ vendor.id }}</div>
-    {% endif %}
-{% endwith %}
+                            {% for vendor in vendors %}
+                            <tr>
+                                <td>{{ vendor.id }}</td>
+                                <td>{{ vendor.name }}</td>
+                                <td>
+                                    <details>
+                                        <summary>View Logs</summary>
+
+                                        {% with prc_history_dict as records %}
+                                            {% if records %}
+                                                {% for record in records %}
+                                                    <div>{{ record }}</div>
+                                                {% endfor %}
+                                            {% else %}
+                                                <div>No transactions found</div>
+                                            {% endif %}
+                                        {% endwith %}
 
 
 
-        </details>
-    </td>
-</tr>
-{% endfor %}
+
+
+
+                                    </details>
+                                </td>
+                            </tr>
+                            {% endfor %}
 
 
 
@@ -160,7 +164,17 @@
     </div>
 
 
-    
+
+<h2>pre</h2>
+
+<p>Vendors count: {{ vendors.count }}</p>
+
+<p>History count: {{ prc_vendor_history.count }}</p>
+
+
+
+
+
     <!-- 'vendor_manager/vendor_details.html' -->
     
     <div class="container py-5">
@@ -207,7 +221,7 @@
                             <td>
                                 <details >
                                      <summary></summary>
-                                    {{ vendor.info }}
+                                    {{ prc_history_dict }}
                                 </details>
                             </td>
                         </tr>

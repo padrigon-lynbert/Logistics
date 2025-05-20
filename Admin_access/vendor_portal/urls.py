@@ -24,6 +24,6 @@ urlpatterns = [
 
 
 #db
-    # path('vendorlist/', vendor_list, name='vendor_list'),
+    # path("vendor_manager/vendor_history/", vendor_history, name="vendor_history"),
 
 ]
