@@ -58,6 +58,7 @@
                         <li><a href="{% url 'explore' %}"> Explore</a></li>
                         {% if request.session.user_id %}
                           <li><a href="{% url 'author' %}">Profile</a></li>
+                          <li><a href="{% url 'logout' %}">Log out</a></li>
                         {% else %}
                           <li><a href="{% url 'signin' %}">Sign in</a></li>
                         {% endif %}
