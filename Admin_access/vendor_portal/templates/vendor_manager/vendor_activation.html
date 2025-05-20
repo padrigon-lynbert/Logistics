@@ -200,14 +200,16 @@
                             <td>
                                 
                                 <div class="d-flex flex-column flex-md-row gap-2">
-                                    <a href="#"><button class="btn btn-outline-primary btn-sm"> {{ vendor.email }}</button></a>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ vendor.email|urlencode }}" target="_blank" rel="noopener noreferrer">
+                                        <button class="btn btn-outline-primary btn-sm">{{ vendor.email }}</button>
+                                    </a>
                                 </div>
                                 
                             </td>
                             <td>
                                 <details >
                                      <summary></summary>
-                                    {{ prc_history_dict }}
+                                    {{ vendor.info }}
                                 </details>
                             </td>
                         </tr>
