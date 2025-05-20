@@ -23,3 +23,17 @@ class Vendor(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.email})"
+
+
+class Vendor_history(models.Model):
+    id = models.AutoField(primary_key=True)
+    vendor_id = models.CharField(max_length=100)
+    event_type = models.CharField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'l2_vendor_history'
+
+    def __str__(self):
+        return f"{self.id} ({self.event_type})"
+

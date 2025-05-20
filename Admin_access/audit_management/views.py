@@ -17,6 +17,9 @@ def policies(request):
 def procedures(request):
     return render(request, 'compliance_management/procedures.html')
 
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def audits(request):
     """Create new audit"""
     if request.method != 'POST':
