@@ -31,7 +31,7 @@ class Audit(models.Model):
     scheduled_date = models.DateField()
     created_by = models.IntegerField() # This is supposed to be a foreign key, subjected for changes.
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         """Returns audit title."""
