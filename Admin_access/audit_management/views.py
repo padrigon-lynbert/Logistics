@@ -35,6 +35,7 @@ def audits(request):
     context = {'form': form}
     return render(request, 'compliance_management/audits.html', context)
 
+@csrf_exempt
 def edit_audit(request, audit_id):
     """Edit an existing audit."""
     audit = get_object_or_404(Audit, audit_id=audit_id)
