@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import PRC_vendor_offers
 
 
 # Create your views here.
@@ -19,8 +20,10 @@ def orders(request):
     return render(request, 'vendor_transaction/orders.html')
 def invoices(request):
     return render(request, 'vendor_transaction/invoices.html')
+
 def cancel_transaction(request):
-    return render(request, 'vendor_transaction/cancel_transaction.html')
+    pvo = PRC_vendor_offers.objects.all()
+    return render(request, 'vendor_transaction/cancel_transaction.html', {'prc_vendor_offers': pvo})
 
 # db
 from django.shortcuts import render
@@ -55,6 +58,8 @@ def vendor_activation_view(request):
 
     vendors = Vendor.objects.all()
     return render(request, "vendor_activation.html", {"vendors": vendors})
+
+
 
 
 

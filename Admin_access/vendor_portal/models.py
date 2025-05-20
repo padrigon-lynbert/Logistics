@@ -36,3 +36,17 @@ class Vendor_history(models.Model):
 
     def __str__(self):
         return f"{self.vendor_id} - {self.event_type} @ {self.created_at}"
+    
+class PRC_vendor_offers(models.Model):
+    id = models.AutoField(primary_key=True)
+    vendor_id = models.IntegerField()
+    agreement_text = models.TextField() 
+    offer_price = models.TextField()
+    status = models.CharField()
+    prc_request_id = models.IntegerField()
+
+    class Meta:
+        db_table = 'prc_vendor_offers'
+
+    def __str__(self):  
+        return "models.prc_vendor_offers"

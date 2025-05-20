@@ -1,0 +1,58 @@
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-header bg-white border-bottom-0 py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">PRC Vendor Offers</h4>
+                        <p class="text-muted mb-0">See Vendor Offers from procurement</p>
+                    </div>
+                    <!-- Optional search or filter -->
+                    <!--
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" placeholder="Search ratings...">
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">Vendor</th>
+                            <th style="width: 20%">Agreement Text</th>
+                            <th style="width: 20%; text-indent: 40px;">Offer Price</th>
+                            <th style="width: 20%">Transaction Status</th>
+                            <th style="width: 20%">PRC Request ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in prc_vendor_offers %}
+                            <tr>
+                                
+                                <td>{{ prc_vendor_offers.id }}</td>
+                                <td>Service 1</td>
+                                <td>
+                                    <a href="">
+                                        <button>091234567</button>
+                                    </a>|
+                                    <a href="">
+                                        <button>
+                                            test@test.com
+                                        </button>
+                                    </a>
+                                </td>
+                                <td  style="padding-left: 50px;">None</td>
+                                <td>
+                                    <a href="#">
+                                        <button class="btn btn-sm btn-primary">Cancel</button>
+                                    </a>
+                                </td>
+                                
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
