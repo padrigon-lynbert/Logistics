@@ -132,28 +132,24 @@
                                     <details>
                                         <summary>View Logs</summary>
 
-                                        {% with prc_history_dict as records %}
-                                            {% if records %}
-                                                {% for record in records %}
-                                                    <div>{{ record }}</div>
-                                                {% endfor %}
-                                            {% else %}
-                                                <div>No transactions found</div>
-                                            {% endif %}
-                                        {% endwith %}
-
-
-
-
-
-
+                                            <div>
+                                                {% with 0 as match_count %}
+                                                    {% for history in prc_vendor_history %}
+                                                        {% if history.vendor_id == vendor.id %}
+                                                            <li>{{ history.event_type }}: {{ history.created_at }}</li>
+                                                            {% with match_count|add:"1" as match_count %}
+                                                            {% endwith %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {% if match_count == 0 %}
+                                                        <li>No logs can be found</li>
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
                                     </details>
                                 </td>
                             </tr>
                             {% endfor %}
-
-
-
 
                         </tbody>
                     </table>
@@ -162,16 +158,6 @@
             </div>
         </div>
     </div>
-
-
-
-<h2>pre</h2>
-
-<p>Vendors count: {{ vendors.count }}</p>
-
-<p>History count: {{ prc_vendor_history.count }}</p>
-
-
 
 
 
