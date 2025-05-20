@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Performance</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #bdccdc;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #363c61 !important;
+      height: 90px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #363c61;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      top: 100%;
+      margin: 15px 0%;
+      border-radius: 12px;
+    }
+
+    .dropdown-content li {
+      padding: 12px 16px;
+    }
+
+    .dropdown-content li a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      font-size: 18px;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+      display: block;
+    }
+
+    .dropdown button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .dropdown button:hover {
+      text-decoration: underline;
+    }
+
+    #logo {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0 100px;
+      color: #fff;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 100px;
+      margin: 0 400px;
+    }
+
+    ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 15px 0;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+    }
+
+  
+    h1 {
+      background-color: #363c61;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+  h2 {
+      color: #2c3c8c;
+      margin: 20px 0;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    form input, form select, form textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form textarea {
+      grid-column: span 2;
+      resize: vertical;
+    }
+
+    form button {
+       grid-column: span 2;
+      padding: 10px;
+      background-color: #363c61;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .performance-list {
+      margin-top: 30px;
+    }
+
+    .performance-card {
+      border: 1px solid #ddd;
+      border-left: 5px solid #006699;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #fdfdfd;
+    }
+
+    .performance-details {
+      font-size: 20px;
+      color: #2c3c8c;
+      line-height: 1.6;
+    }
+
+    .performance-card h4 {
+      margin: 0 0 10px;
+      color: #2c3c8c;
+      font-size: 18px;
+    }
+
+  footer {
+      background-color:#363c61;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 380px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div id="logo">LOGO</div>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Maintenance Management</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'preventive_maintenance_scheduling.html' %}">Preventive Management Scheduling</a></li>
+          <li><a href="{% url 'maintenance_history_logging.html' %}">Maintenance History Logging</a></li>
+          <li><a href="{% url 'asset_management.html' %}">Asset Management</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Driver Management</a>
+        <ul class="dropdown-content">
+          <li><a href="driver_ass.html">Driver Assignment</a></li>
+          <li><a href="driver_performance_monitoring.html">Driver Performance Monitoring</a></li>
+          <li><a href="vehicle_tracking.html">Vehicle Tracking</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Safety and Compliance</a>
+        <ul class="dropdown-content">
+          <li><a href="vehicle_inspections.html">Vehicle Inspection</a></li>
+          <li><a href="accident_reporting.html">Accident Reporting</a></li>
+          <li><a href="compliance_training.html">Compliance Training & Certification</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Driver Performance Tracking</h1>
+    <h2>Log Performance</h2>
+    <form id="performanceForm">
+      <input type="text" placeholder="Driver Name" required>
+      <input type="text" placeholder="Assigned Vehicle" required>
+      <input type="date" placeholder="Trip Date" required>
+
+      <select required>
+        <option value="" disabled selected>Punctuality</option>
+        <option>Always on Time</option>
+        <option>Partially on Time</option>
+        <option>Always Late</option>
+      </select>
+
+      <select required>
+        <option value="" disabled selected>Trip Completion</option>
+        <option>Completed</option>
+        <option>Partially Completed</option>
+        <option>Missed</option>
+      </select>
+
+      <select required>
+        <option value="" disabled selected>Traffic Rule Compliance</option>
+        <option>No Violations</option>
+        <option>Minor Violation</option>
+        <option>Major Violation</option>
+      </select>
+
+      <select required>
+        <option value="" disabled selected>Driving Behavior</option>
+        <option>Safe</option>
+        <option>Moderate</option>
+        <option>Aggressive</option>
+      </select>
+
+      <input type="text" placeholder="Incident Reports (if any)">
+      <input type="text" placeholder="Equipment Condition">
+
+      <textarea placeholder="Supervisor Remarks (optional)"></textarea>
+
+      <select required>
+        <option value="" disabled selected>Performance Rating</option>
+        <option>★☆☆☆☆</option>
+        <option>★★☆☆☆</option>
+        <option>★★★☆☆</option>
+        <option>★★★★☆</option>
+        <option>★★★★★</option>
+      </select>
+
+      <button type="submit">Submit Performance</button>
+    </form>
+
+    <section class="performance-list" id="performanceList">
+      <h2>Performance Records</h2>
+      <!-- Entries will appear here -->
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('performanceForm');
+    const list = document.getElementById('performanceList');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const inputs = Array.from(form.elements).filter(el => el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA');
+      const data = inputs.map(input => input.value);
+
+      const card = document.createElement('div');
+      card.className = 'performance-card';
+      card.innerHTML = `
+        <h4>${data[0]} – ${data[1]}</h4>
+        <div class="performance-details">
+          <strong>Trip Date:</strong> ${data[2]}<br>
+          <strong>Punctuality:</strong> ${data[3]}<br>
+          <strong>Trip Completion:</strong> ${data[4]}<br>
+          <strong>Traffic Rule Compliance:</strong> ${data[5]}<br>
+          <strong>Driving Behavior:</strong> ${data[6]}<br>
+          <strong>Incident Reports:</strong> ${data[7] || 'None'}<br>
+          <strong>Passenger Feedback:</strong> ${data[8] || 'N/A'}<br>
+          <strong>Remarks:</strong> ${data[9] || '–'}<br>
+          <strong>Rating:</strong> ${data[10]}
+        </div>
+      `;
+      list.appendChild(card);
+      form.reset();
+    });
+  </script>
+<footer>
+    &copy; 2025 Fleet Management System - Compliance Division. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
