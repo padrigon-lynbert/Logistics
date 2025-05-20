@@ -54,6 +54,14 @@ def edit_audit(request, audit_id):
     context = {'form': form, 'audit': audit}
     return render(request, 'compliance_management/edit_audit.html', context)
 
+@csrf_exempt
+def delete_audit(request, audit_id):
+    """Delete audit"""
+    audit = get_object_or_404(Audit, audit_id=audit_id)
+    if request.method == 'POST':
+        audit.delete()
+        return redirect('policies')
+
 def audit_findings(request):
     return render(request, 'reporting_analytics/audit_findings.html')
 def user_engagement(request):
