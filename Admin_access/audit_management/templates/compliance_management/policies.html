@@ -150,7 +150,7 @@
               {% endif %}
               <td>{{ audit.updated_at }}</td>
               <td>
-                <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="{% url "edit_audit" audit.audit_id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
               </td>
              </tr>
             {% empty %}
