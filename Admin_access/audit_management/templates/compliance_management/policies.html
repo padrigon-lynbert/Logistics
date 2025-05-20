@@ -150,7 +150,13 @@
               {% endif %}
               <td>{{ audit.updated_at }}</td>
               <td>
-                <a href="{% url "edit_audit" audit.audit_id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="{% url 'edit_audit' audit.audit_id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+              </td>
+              <td>
+                <form action="{% url 'delete_audit' audit.audit_id %}" method="post">
+                  {% csrf_token %}
+                  <button name='submit' class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
               </td>
              </tr>
             {% empty %}
