@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from Admin_access.audit_management.models import Audit
 from Admin_access.audit_management.forms import AuditForm
 
@@ -16,6 +16,7 @@ def policies(request):
 
 def procedures(request):
     return render(request, 'compliance_management/procedures.html')
+
 def audits(request):
     """Create new audit"""
     if request.method != 'POST':
@@ -30,6 +31,24 @@ def audits(request):
             return redirect('policies')
     context = {'form': form}
     return render(request, 'compliance_management/audits.html', context)
+
+def edit_audit(request, audit_id):
+    """Edit an existing audit."""
+    audit = get_object_or_404(Audit, audit_id=audit_id)
+    if request.method != 'POST':
+        # Render the existing form.
+        form = AuditForm(instance=audit)
+    else:
+        # Data is submitted
+        form = AuditForm(request.POST, instance=audit)
+        if form.is_valid():
+            form.save(commit=False)
+            audit.audit_id = audit_id
+            audit.save()
+            return redirect('policies')
+    
+    context = {'form': form, 'audit': audit}
+    return render(request, 'compliance_management/edit_audit.html', context)
 
 def audit_findings(request):
     return render(request, 'reporting_analytics/audit_findings.html')
