@@ -209,39 +209,9 @@ ul li a:hover {
 </head>
 <body>
   {% load static %}
-  <nav>
-    <!-- <div id="logo"><img src="{% static 'logo.png' %}" alt="Microfinance"></div> -->
-     <a href="{% url 'dashboard' %}">
-       <h2 style="color: white;">TruLend</h2>
-     </a>
-    <ul>
-      <li class="dropdown">
-        <a href="#">Reservation Management</a>
-        <ul class="dropdown-content">
-          <li class="nav-active">Booking History</li>
-          <li><a href="{% url 'reservation_approval' %}">Reservation Approval</a></li>
-          <li><a href="{% url 'booking_history' %}">Booking History</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Vehicle Allocation</a>
-        <ul class="dropdown-content">
-          <li><a href="{% url 'fleet_assignment' %}">Fleet Assignment</a></li>
-          <li><a href="{% url 'vehicle_status_monitoring' %}">Vehicle Status Monitoring</a></li>
-          <li><a href="{% url 'usage_reports' %}">Usage Reports</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Maintenance Integration</a>
-        <ul class="dropdown-content">
-          <li><a href="{% url 'inspection_scheduling' %}">Inspection Scheduling</a></li>
-          <li><a href="{% url 'usage_compliance' %}">Usage Compliance</a></li>
-          <li><a href="{% url 'repair_and_maintenance_request' %}">Repair &amp; Maintenance Requests</a></li>
-        </ul>
-      </li>
-    </ul>
-    
-  </nav>
+
+  {% include 'header.html' %}
+
 
 
 

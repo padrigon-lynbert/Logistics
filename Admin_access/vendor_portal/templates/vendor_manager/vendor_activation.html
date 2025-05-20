@@ -9,86 +9,9 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <style>
-        .status-badge {
-            padding: 0.35em 0.65em;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-        .status-active { background-color: #8eea39; color: #1A1F2C; }
-        .status-inactive { background-color: #FEC6A1; color: #1A1F2C; }
-        .status-paused { background-color: #f5e68e; color: #1A1F2C; }
-        .card { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: none; }
-        .table > :not(caption) > * > * { padding: 1rem; }
-    </style>
-</head>
-<body class="bg-light">
 
 
-    <div class="container py-5">
-        <div class="card mb-4">
-            <div class="card-header bg-white border-bottom-0 py-4 d-flex justify-content-between align-items-center">
-                <div>
-                    <h4 class="mb-1">Vendor Activation</h4>
-                    <p class="text-muted mb-0">Manage and monitor vendor statuses</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
-                        <input type="text" class="form-control border-start-0" placeholder="Search vendors...">
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div style="max-height: 300px; overflow-y: auto;">
-                    <table class="table align-middle table-hover" style="table-layout: fixed;">
-                        <thead>
-                            <tr>
-                                <th style="width: 20%">Company</th>
-                                <th style="width: 10%">State</th>
-                                <th style="width: 15%">Actions</th>
-                                <th style="width: 55%">About</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for vendor in vendors %}
-                            <tr>
-                                <td>{{ vendor.name }}</td>
-                                <td>
-                                    <span class="status-badge status-{{ vendor.activation_status }}">
-                                        {{ vendor.activation_status|title }}
-                                    </span>
-                                </td>
-                                <td>
-                                    <form method="POST" action="{% url 'vendor_activation_view' %}" class="d-inline">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="vendor_id" value="{{ vendor.id }}">
-                                        <input type="hidden" name="status" value="inactive">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary {% if vendor.activation_status == 'inactive' %}active{% endif %}">Inactive</button>
-                                    </form>
-                                    <form method="POST" action="{% url 'vendor_activation_view' %}" class="d-inline">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="vendor_id" value="{{ vendor.id }}">
-                                        <input type="hidden" name="status" value="active">
-                                        <button type="submit" class="btn btn-sm btn-outline-success {% if vendor.activation_status == 'active' %}active{% endif %}">Active</button>
-                                    </form>
-                                    <form method="POST" action="{% url 'vendor_activation_view' %}" class="d-inline">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="vendor_id" value="{{ vendor.id }}">
-                                        <input type="hidden" name="status" value="paused">
-                                        <button type="submit" class="btn btn-sm btn-outline-warning {% if vendor.activation_status == 'paused' %}active{% endif %}">Paused</button>
-                                    </form>
-                                </td>
-                                <td><details><summary></summary>{{ vendor.info }}</details></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
       <!-- vendor_manager/tracks.html -->
 
@@ -117,9 +40,9 @@
                     <table class="table align-middle table-hover" style="width: 100%; table-layout: fixed;">  
                         <thead>
                             <tr>
-                                <th style="width: 20%">vendor_id</th>
-                                <th style="width: 20%">Company</th>
-                                <th style="width: 80%;">History Log</th>
+                                <th style="width: 30%">vendor_id</th>
+                                <th style="width: 30%">Company</th>
+                                <th style="width: 40%;">History Log</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,7 +65,7 @@
                                                         {% endif %}
                                                     {% endfor %}
                                                     {% if match_count == 0 %}
-                                                        <li>No logs can be found</li>
+                                                        <li>Log scanning ended </li>
                                                     {% endif %}
                                                 {% endwith %}
                                             </div>
