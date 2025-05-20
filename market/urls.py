@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import index_market, create, explore, author, vendor_signup
-from .views import signin
+from .views import signin, logout
 from .views import user_image
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
     path('dashboard/vendor_signup/', vendor_signup, name='vendor_signup'),
     path('signin/', signin, name='signin'),
     path('user-image/<int:user_id>/', user_image, name='user_image'),
+    path('logout/', logout, name='logout'),
 
 ]
