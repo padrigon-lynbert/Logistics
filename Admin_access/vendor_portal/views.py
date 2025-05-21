@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import PRC_vendor_offers
-
+# from .forms import VendorOffersForm
 
 # Create your views here.
 
@@ -27,7 +27,7 @@ def cancel_transaction(request):
 
 # db
 from django.shortcuts import render
-from .models import Vendor, Vendor_history
+from .models import Vendor, Vendor_history, PRC_vendor_offers
 
 def vendor_activation(request):
     # Fetch all vendors
@@ -58,6 +58,27 @@ def vendor_activation_view(request):
 
     vendors = Vendor.objects.all()
     return render(request, "vendor_activation.html", {"vendors": vendors})
+
+from django.db import IntegrityError
+def dv(request):
+    offers = PRC_vendor_offers.objects.all().order_by('-id')
+    try:
+        if request.method == 'POST':
+            PRC_vendor_offers.objects.create(
+                vendor_id=request.POST.get('vendor_id'),
+                agreement_text=request.POST.get('agreement_text'),
+                offer_price=request.POST.get('offer_price'),
+                status=request.POST.get('status'),
+                prc_request_id=request.POST.get('prc_request_id')
+            )
+            return redirect('dv')  # redirect to avoid resubmit
+
+        return render(request, 'vendor_transaction/cancel_transaction.html', {'prc_vendor_offers': offers})
+    except IntegrityError:
+        return render(request, 'vendor_transaction/cancel_transaction.html', {
+            'prc_vendor_offers': offers,
+            'integrity_error': "No vendor found with same ID"
+            })
 
 
 
