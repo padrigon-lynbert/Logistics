@@ -109,3 +109,7 @@ def user_image(request, user_id):
             raise Http404("No image found")
     except UserInfo.DoesNotExist:
         raise Http404("User not found")
+    
+def logout(request):
+    request.session.flush()
+    return redirect('index_market')
