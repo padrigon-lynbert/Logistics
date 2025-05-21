@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.hashers import check_password, make_password
 from django.shortcuts import render, redirect
 
-from .models import UserInfo
+from .models import UserInfo, Vendor_history
 
 
 def index_market(request):
@@ -16,6 +16,7 @@ def create(request):
     return render(request, 'create.html')
 
 def author(request):
+    vendor_history = Vendor_history.objects.all()
     user_id = request.session.get('user_id')
 
     if not user_id:
@@ -23,7 +24,9 @@ def author(request):
 
     try:
         user = UserInfo.objects.get(id=user_id)
-        return render(request, 'author.html', {'user': user})
+        return render(request, 'author.html', {
+            'user': user,
+            'vendor_history': vendor_history})
     except UserInfo.DoesNotExist:
         return redirect('signin')
 
