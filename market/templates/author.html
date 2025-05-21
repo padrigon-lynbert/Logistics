@@ -98,7 +98,7 @@
 
         </div>
         <div class="profile-right">
-          <h2>{{ user.name }}</h2>
+          <h2> {{ user.name }}<span style="font-size: 25px;">(#{{user.id}})</span> | <span style="color: #7453fc;">{{user.activation_status}}</span></h2>
           <p><span>Email:</span> {{ user.email }}</p>
           <p><span>Info:</span> {{ user.info }}</p>
           <p><span>Bid:</span> {{ user.bid }}</p>
@@ -114,46 +114,44 @@
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2><em>{{ user.name }}’s </em> past transactions</h2>
+            <h2><em>{{user.id}}</em> {{ user.name }}’s past transactions</h2>
           </div>
         </div>
 
         {% for past_transaction in vendor_history %}
         
           {% if past_transaction.vendor_id == user.id %}
-            <!-- <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
               <div class="item">
                 <div class="row">
                   <div class="col-lg-12">
                     <span class="author">
                       <img src="assets/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                     </span>
-                    <img src="assets/images/discover-03.jpg" alt="" style="border-radius: 20px;">
-                    <h4>past_transaction.event_type</h4>
+                    <img src="assets/images/discover-03.jpg" alt="" style="border-radius: 20px; display: block; margin-bottom: 5px;">
+                    <h4 style="margin-top: 10px; margin-bottom: 0;">{{ past_transaction.created_at }}</h4>
                   </div>
-                  <div class="col-lg-12">
+                  <!-- <div class="col-lg-12">
                     <div class="line-dec"></div>
                     <div class="row">
-                      <div class="col-6">
-                        <span>Current Bid: <br> <strong>500 k</strong></span>
+                      <div class="">
+                        <span>Date: <br> <strong>{{past_transaction.created_at}}</strong></span>
                       </div>
                       <div class="col-6">
-                        <span>Ends In: <br> <strong>25th Nov</strong></span>
+                        <span>Time: <br> <strong>25th Nov</strong></span>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-lg-12">
                     <div class="main-button">
-                      <a href="details.html">Company Consulting</a>
+                      <a href="details.html">{{past_transaction.event_type}}</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div> -->
-            <p>test</p>
+            </div>
           {% endif %}
         {% endfor %}
-<p>{{vendor_history}}</p>
        
         
 

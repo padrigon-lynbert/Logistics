@@ -40,12 +40,9 @@ def signin(request):
             user = UserInfo.objects.get(email=email)
             stored_hash = user.password
 
-            print(f"Entered: {password}")
-            print(f"Stored: {stored_hash}")
-
             if check_password(password, stored_hash):
-                request.session['user_id'] = user.id  # Save user.id
-                return redirect('author') # success page
+                request.session['user_id'] = user.id
+                return redirect('author')
             else:
                 print("Wrong password")
                 return render(request, 'signin.html', {'error': 'Invalid password'})

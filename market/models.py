@@ -8,6 +8,7 @@ class UserInfo(models.Model):
     info = models.TextField()
     bid = models.CharField(max_length=255)
     img = models.BinaryField()
+    activation_status = models.CharField()
 
     class Meta:
         db_table = 'market_userinfo'
