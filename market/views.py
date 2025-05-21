@@ -67,7 +67,6 @@ def vendor_signup(request):
         password = request.POST['password']
         service = request.POST['service']
         about = request.POST['about']
-        raw_bid = request.POST.get('bid')
         bid = request.POST.get('bid') or None
 
         if 'image' in request.FILES:
