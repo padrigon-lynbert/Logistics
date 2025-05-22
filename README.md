@@ -2,7 +2,7 @@ Codebase for modular system: __Logistic II__ proj: development and integration i
 
 **system symmary**: Optimizes logistics (**delivering an item from point A to point B**) with tools for vehicle booking, fleet tracking, document management, vendor portal (**supplier management**), coordination(**with other companies and internal faculties**), and service reliability.  
 
-**Members:**  
+**The Team:**  
 Padrigon, Lynbert  
 Usita, Andrei 
 Sacyaten, Jan Claude  
