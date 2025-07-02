@@ -86,16 +86,28 @@ WSGI_APPLICATION = 'Logistics_II.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'logistic2',  # The database name
+#         'USER': 'logistic2_user',  # The username for the database
+#         'PASSWORD': 'RnOMkUBoAX06KJ7crw3mBgl68pN3ISyf',  # The password you received
+#         'HOST': 'dpg-d0e74ch5pdvs73aqmnr0-a.oregon-postgres.render.com',  # The external hostname
+#         'PORT': '5432',  # The default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'logistic2',  # The database name
-        'USER': 'logistic2_user',  # The username for the database
-        'PASSWORD': 'RnOMkUBoAX06KJ7crw3mBgl68pN3ISyf',  # The password you received
-        'HOST': 'dpg-d0e74ch5pdvs73aqmnr0-a.oregon-postgres.render.com',  # The external hostname
-        'PORT': '5432',  # The default PostgreSQL port
+        'NAME': 'logistics_dayh',
+        'USER': 'logistics_dayh_user',
+        'PASSWORD': 'T7r5NhX6RaxJST9iewP3OpFrjaWEQIjo',
+        'HOST': 'dpg-d1ihkg3ipnbc73bpodeg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
+
 
 
 

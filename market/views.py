@@ -89,10 +89,12 @@ def vendor_signup(request):
             user_info.save()
             return redirect('signin')
 
-        except IntegrityError:
+        except IntegrityError as e:
+            print("Signup failed:", e)
             return render(request, 'vendor_signup.html', {
-                'error': 'Email already exists. Try signing in or use another email.'
+                'error': 'Signup failed. Possibly duplicate email or invalid data.'
             })
+
 
     return render(request, 'vendor_signup.html')
 

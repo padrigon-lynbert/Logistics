@@ -11,7 +11,7 @@ class UserInfo(models.Model):
     activation_status = models.CharField(default='inactive')
 
     class Meta:
-        db_table = 'market_userinfo'
+        db_table = 'user_info'
         managed = True
 
     def __str__(self):
@@ -30,5 +30,7 @@ class Vendor_history(models.Model):
 
     def __str__(self):
         return f"{self.vendor_id} - {self.event_type} @ {self.created_at}"
+    
+
 
 
