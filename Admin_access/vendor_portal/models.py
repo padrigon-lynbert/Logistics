@@ -19,7 +19,7 @@ class Vendor(models.Model):
     )
 
     class Meta:
-        db_table = 'market_userinfo'
+        db_table = 'user_info'
 
     def __str__(self):
         return f"{self.name} ({self.email})"

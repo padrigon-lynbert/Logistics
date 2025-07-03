@@ -9,7 +9,8 @@ class UserInfo(models.Model):
     img = models.URLField()
 
     class Meta:
-        db_table = 'user_info'
+        # db_table = 'user_info'
+        db_table = 'userinfo'
         managed = False
 
     def __str__(self):
