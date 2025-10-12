@@ -103,16 +103,22 @@ WSGI_APPLICATION = 'Logistics_II.wsgi.application'
 #     }
 # }
 
+import dj_database_url
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'logistics_dayh',
-        'USER': 'logistics_dayh_user',
-        'PASSWORD': 'T7r5NhX6RaxJST9iewP3OpFrjaWEQIjo',
-        'HOST': 'dpg-d1ihkg3ipnbc73bpodeg-a.oregon-postgres.render.com',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'logistics_dayh',
+    #     'USER': 'logistics_dayh_user',
+    #     'PASSWORD': 'T7r5NhX6RaxJST9iewP3OpFrjaWEQIjo',
+    #     'HOST': 'dpg-d1ihkg3ipnbc73bpodeg-a.oregon-postgres.render.com',
+    #     'PORT': '5432',
+    # }
+    
+    'default': dj_database_url.parse(
+        'postgresql://neondb_owner:npg_OHPbs4mV3qAT@ep-plain-brook-ad168tf7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+    )
+
 }
 
 
