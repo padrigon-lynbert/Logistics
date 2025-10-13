@@ -1,3 +1,5 @@
+*The leaked keys are put there but we know they exist, reason: the other endpoint are already removed this project is long overdue*
+
 Codebase for modular system: __Logistic II__ proj: development and integration into **Trulend: Microfinance** (*BSIT3201-sem2*).
 
 **system symmary**: Optimizes logistics (**delivering an item from point A to point B**) with tools for vehicle booking, fleet tracking, document management, vendor portal (**supplier management**), coordination(**with other companies and internal faculties**), and service reliability.  
